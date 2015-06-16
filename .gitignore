@@ -1,0 +1,8 @@
+node_modules/
+bower_components/
+.sass-cache/
+.tmp/
+dist/
+kaizen-books-mng.iml
+kaizen-books-mng.ipr
+kaizen-books-mng.iws
