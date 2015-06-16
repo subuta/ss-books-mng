@@ -1,7 +1,11 @@
 {
   "name": "kaizenBooksMng",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-ruby-sass": "^1.0.5",
+    "main-bower-files": "^2.8.0",
+    "node-bourbon": "^4.2.3"
+  },
   "devDependencies": {
     "gulp": "~3.8.10",
     "gulp-autoprefixer": "~2.0.0",
