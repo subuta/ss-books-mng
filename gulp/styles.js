@@ -22,7 +22,7 @@ gulp.task('styles', ['pre-styles'], function() {
 gulp.task('pre-styles', function () {
   // task to import app/components's scss files
   var injectFiles = gulp.src([
-    paths.src + '/{app,components}/**/*.scss',
+    paths.src + '/{app,components,scss}/**/*.scss',
     '!' + paths.src + '/app/index.scss'
   ], { read: false });
 

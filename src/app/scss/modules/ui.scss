@@ -1,0 +1,24 @@
+// --------------------------------------------------
+// UI Modules
+// --------------------------------------------------
+.btn {
+  display: inline-block;
+  padding: 8px $base-margin * 2;
+
+  @include border-top-radius(5px);
+  @include border-right-radius(5px);
+  @include border-bottom-radius(5px);
+  @include border-left-radius(5px);
+}
+
+.btn-solid {
+  @include border-top-radius(0);
+  @include border-right-radius(0);
+  @include border-bottom-radius(0);
+  @include border-left-radius(0);
+}
+
+.btn-ghost {
+  border: 2px solid white;
+  background-color: transparent;
+}

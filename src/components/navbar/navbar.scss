@@ -1,8 +1,59 @@
 // --------------------------------------------------
 // Navigation Bar Layout
 // --------------------------------------------------
-.navbar {
+.l-navbar {
   @include margin(0 0 0 0);
   padding: 0;
-  background-color: blue;
+  height: 40px;
+  background-color: #7FB6F5;
+
+  .brand-logo-text {
+    display: inline-block;
+    padding: $base-margin;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80px;
+    color: white;
+  }
+}
+
+.l-navbar ul {
+  display: inline-block;
+  width: 100%;
+
+  li:first-child {
+    margin-left: 80px + $base-margin; // brand-logo + margin(10px);
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 10px;
+
+    .btn {
+      margin-top: -2px;
+      height: 44px;
+    }
+
+    .btn-ghost {
+      color: white;
+
+      ng-md-icon {
+        fill: white;
+      }
+    }
+
+    .link-text {
+      color: white;
+
+      ng-md-icon {
+        fill: white;
+      }
+    }
+  }
+}
+
+.l-navbar-text {
+  display: inline-block;
+  padding: 8px;
 }

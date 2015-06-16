@@ -1,7 +1,18 @@
-nav.navbar(ng-controller='NavbarCtrl')
-  a(href='https://github.com/Swiip/generator-gulp-angular') KAIZEN
-  ul
+nav.l-navbar(ng-controller='NavbarCtrl')
+  a.brand-logo-text(href='https://github.com/Swiip/generator-gulp-angular') KAIZEN
+  ul.l-clearfix
     li.active
-      a(ng-href='#') 本の一覧
+      a.btn.btn-ghost.btn-solid(ng-href='#') 本の一覧
     li
-      a(ng-href='#') 本の追加
+      a.btn.btn-ghost.btn-solid(ng-href='#') 本の追加
+    li.l-pull-right
+      a.link-text(ng-href='#')
+        ng-md-icon(icon="person" size="24")
+    li.l-pull-right
+      a.btn.btn-ghost.btn-solid(ng-href='#')
+        ng-md-icon(icon="navigate_next" size="24")
+    li.l-pull-right
+      a.btn.btn-ghost.btn-solid(ng-href='#')
+        ng-md-icon(icon="navigate_before" size="24")
+    li.l-pull-right
+      span.l-navbar-text 0-15 / 100 (P.1)
