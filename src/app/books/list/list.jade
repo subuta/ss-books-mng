@@ -1,0 +1,22 @@
+div(ng-include="'components/navbar/navbar.html'")
+
+.container.l-clearfix
+  .l-submenu.is-sidebar
+    form.sb-form
+      h4.sb-form-header 検索条件
+      .sb-input-wrapper
+        label.sb-input-label タイトル
+        input.sb-input(type="text")
+      .sb-input-wrapper
+        label.sb-input-label 著者
+        input.sb-input(type="text")
+      .sb-input-wrapper
+        label.sb-input-label 更新日時
+        input.sb-input(type="text")
+      button.btn(type="button") 検索
+
+  .l-simple-card(ng-repeat="book in vm.books")
+    img.l-simple-card-image(ng-src="{{book.imageUrl}}")
+    span.l-simple-card-label(ng-bind="book.name")
+  hr
+  div(ng-include="'components/footer/footer.html'")

@@ -1,3 +1,6 @@
 angular.module "kaizenBooksMng"
-  .controller "NavbarCtrl", ($scope) ->
-    $scope.date = new Date()
+  .controller "NavbarCtrl", ($scope, $state) ->
+    vm = @
+
+    vm.isIn = (state) ->
+      return $state.is(state)

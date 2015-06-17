@@ -7,9 +7,15 @@
 // Type Scales
 // from: http://type-scale.com/?size=14&scale=1.333&text=A%20Visual%20Type%20Scale&webfont=Libre+Baskerville&font-family=%27Libre%20Baskerville%27,%20serif&font-weight=400&font-family-headers=&font-weight-headers=inherit&background-color=white&font-color=%23333
 // --------------------------------------------------
-html {font-size: 0.875em;}
+html {
+  height: 100%;
+  width: 100%;
+  font-size: 0.875em;
+}
 
 body {
+  height: 100%;
+  width: 100%;
   background-color: white;
   font-family: 'Noto Sans Japanese', sans-serif !important;
   font-weight: 400;
@@ -38,3 +44,17 @@ h3 {font-size: 1.777em;}
 h4 {font-size: 1.333em;}
 
 small, .font_small {font-size: 0.75em;}
+
+ui-view, .ui-view-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+input, button, img {
+  outline: none;
+}

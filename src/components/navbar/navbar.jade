@@ -1,10 +1,10 @@
-nav.l-navbar(ng-controller='NavbarCtrl')
+nav.l-navbar(ng-controller='NavbarCtrl as vm')
   a.brand-logo-text(href='https://github.com/Swiip/generator-gulp-angular') KAIZEN
   ul.l-clearfix
-    li.active
-      a.btn.btn-ghost.btn-solid(ng-href='#') 本の一覧
     li
-      a.btn.btn-ghost.btn-solid(ng-href='#') 本の追加
+      a.l-navbar-navigation.btn.btn-ghost.btn-solid(ng-href='#' ng-class="{'is-active': vm.isIn('books.list')}") 本の一覧
+    li
+      a.l-navbar-navigation.btn.btn-ghost.btn-solid(ng-href='#' ng-class="{'is-active': vm.isIn('books.add')}") 本の追加
     li.l-pull-right
       a.link-text(ng-href='#')
         ng-md-icon(icon="person" size="24")

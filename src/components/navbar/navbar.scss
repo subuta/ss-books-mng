@@ -54,6 +54,12 @@
 }
 
 .l-navbar-text {
+  color: white;
   display: inline-block;
-  padding: 8px;
+  padding: 10px;
+}
+
+.l-navbar-navigation.is-active, .l-navbar-navigation.is-active:hover {
+  color: #7FB6F5 !important;
+  background-color: white;
 }

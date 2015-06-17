@@ -1,0 +1,12 @@
+.l-footer {
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  bottom: 0;
+  padding: 12px $base-margin;
+  border-top: 1px solid rgba(204, 204, 204, 0.4);
+}
+
+.l-footer-text {
+  color: rgba(77, 77, 77, 0.8);
+}

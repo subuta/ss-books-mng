@@ -9,10 +9,15 @@ angular.module "kaizenBooksMng", [
 ]
   .config ($stateProvider, $urlRouterProvider) ->
     $stateProvider
-      .state "home",
-        url: "/",
-        templateUrl: "app/main/main.html",
-        controller: "MainCtrl"
+      .state 'books',
+        url: '/books'
+        abstract: true
+        template: '<ui-view/>'
+      .state 'books.list',
+        url: "/list",
+        templateUrl: "app/books/list/list.html",
+        controller: "ListBooksCtrl"
+        controllerAs: 'vm'
 
-    $urlRouterProvider.otherwise '/'
+    $urlRouterProvider.otherwise '/books/list'
 

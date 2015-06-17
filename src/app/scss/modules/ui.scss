@@ -1,14 +1,23 @@
 // --------------------------------------------------
 // UI Modules
 // --------------------------------------------------
+
+// --------------------------------------------------
+// Buttons
+// --------------------------------------------------
 .btn {
   display: inline-block;
-  padding: 8px $base-margin * 2;
-
+  padding: 10px $base-margin * 2;
+  background-color: #4597F5;
+  border: 2px solid white;
   @include border-top-radius(5px);
   @include border-right-radius(5px);
   @include border-bottom-radius(5px);
   @include border-left-radius(5px);
+
+  &:hover {
+    background-color: darken(#4597F5, 20%);
+  }
 }
 
 .btn-solid {
@@ -21,4 +30,86 @@
 .btn-ghost {
   border: 2px solid white;
   background-color: transparent;
+}
+
+// --------------------------------------------------
+// Form
+// --------------------------------------------------
+.sb-form {
+  margin: $base-margin;
+}
+
+.sb-form-header {
+  margin: 0;
+  @include padding(5px 0 15px 0);
+  text-align: center;
+}
+
+.sb-input-wrapper {
+  margin-bottom: 15px;
+}
+
+.sb-input-label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.sb-input {
+  padding-left: $base-margin;
+  height: 35px;
+  width: 100%;
+  background-color: white;
+  color: #4D4D4D;
+
+  // border radius
+  @include border-top-radius(5px);
+  @include border-right-radius(5px);
+  @include border-bottom-radius(5px);
+  @include border-left-radius(5px);
+}
+
+// --------------------------------------------------
+// Card
+// --------------------------------------------------
+.l-simple-card {
+  display: inline-block;
+  height: 190px;
+  width: 190px;
+  box-sizing: content-box;
+  margin: $base-margin;
+  box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.50);
+}
+
+.l-simple-card-image {
+  height: 150px;
+  width: 190px;
+}
+
+.l-simple-card-label {
+  display: inline-block;
+  height: 40px - $base-margin;
+  width: 190px - $base-margin;
+  @include padding($base-margin null null $base-margin);
+  background-color: #7FB6F5;
+  color: white;
+  box-shadow: 0 -1px 2px 0 rgba(0,0,0,0.40);
+}
+
+// --------------------------------------------------
+// SubMenu
+// --------------------------------------------------
+.l-submenu {
+  height: 85%;
+  width: 190px;
+  @include margin($base-margin null $base-margin $base-margin);
+  background-color: #7FB6F5;
+  color: rgba(255, 255, 255, 0.80);
+
+  .sb-form-header {
+    color: white;
+  }
+}
+
+.is-sidebar {
+  float: left;
 }
