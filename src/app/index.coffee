@@ -1,4 +1,4 @@
-angular.module "kaizenBooksMng", [
+app = angular.module "kaizenBooksMng", [
   'ngAnimate',
   'ngCookies',
   'ngTouch',
@@ -7,7 +7,8 @@ angular.module "kaizenBooksMng", [
   'ngResource',
   'ui.router'
 ]
-  .config ($stateProvider, $urlRouterProvider) ->
+
+app.config ($stateProvider, $urlRouterProvider) ->
     $stateProvider
       .state 'books',
         url: '/books'
@@ -18,6 +19,13 @@ angular.module "kaizenBooksMng", [
         templateUrl: "app/books/list/list.html",
         controller: "ListBooksCtrl"
         controllerAs: 'vm'
+      .state 'books.add',
+        url: "/add",
+        templateUrl: "app/books/add/add.html",
+        controller: "AddBooksCtrl"
+        controllerAs: 'vm'
 
     $urlRouterProvider.otherwise '/books/list'
 
+app.run () ->
+  console.log 'run!'

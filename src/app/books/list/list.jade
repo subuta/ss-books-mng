@@ -1,5 +1,3 @@
-div(ng-include="'components/navbar/navbar.html'")
-
 .container.l-clearfix
   .l-submenu.is-sidebar
     form.sb-form
@@ -16,7 +14,7 @@ div(ng-include="'components/navbar/navbar.html'")
       button.btn(type="button") 検索
 
   .l-simple-card(ng-repeat="book in vm.books")
-    img.l-simple-card-image(ng-src="{{book.imageUrl}}")
-    span.l-simple-card-label(ng-bind="book.name")
-  hr
+    img.simple-card-image(ng-src="{{book.imageUrl}}")
+    span.simple-card-label(ng-bind="book.name")
+
   div(ng-include="'components/footer/footer.html'")

@@ -1,5 +1,5 @@
 app = angular.module "kaizenBooksMng"
-app.controller "ListBooksCtrl", ($scope, Books) ->
+app.controller "AddBooksCtrl", ($scope, Books) ->
   vm = @
   vm.books = Books.gets()
   return @
