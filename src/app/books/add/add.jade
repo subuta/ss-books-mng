@@ -1,3 +1,24 @@
 .container.l-clearfix
-
+  .l-form
+    .l-col.l-col-70
+      .sb-input-wrapper
+        label.sb-input-label タイトル
+        input.sb-input(type="text")
+      .sb-input-wrapper
+        label.sb-input-label 著者
+        input.sb-input(type="text")
+      .sb-input-wrapper
+        label.sb-input-label 出版社名
+        input.sb-input(type="text")
+      .sb-input-wrapper
+        label.sb-input-label 価格 (税込み)
+        input.sb-input-narrow(type="text")
+        span.sb-input-addon 円
+      hr.sb-divider
+      button.btn.btn-primary(type="button" ss-waves) 登録
+      button.btn.btn-primary(type="button" ss-waves) 連続登録
+      button.btn.btn-ghost-warning(type="button" ss-waves) キャンセル
+    .l-col.l-col-30
+      .sb-form-profile-image
+        img(ng-src="http://lorempixel.com/190/190/cats/3/" ss-waves)
   div(ng-include="'components/footer/footer.html'")

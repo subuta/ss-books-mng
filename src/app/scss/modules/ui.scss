@@ -7,8 +7,8 @@
 // --------------------------------------------------
 .btn {
   display: inline-block;
+  margin-right: $base-margin;
   padding: 10px $base-margin * 2;
-  background-color: #4597F5;
   border: 2px solid white;
   @include border-top-radius(5px);
   @include border-right-radius(5px);
@@ -27,13 +27,30 @@
   @include border-left-radius(0);
 }
 
+.btn-primary {
+  background-color: #4597F5;
+  color: white;
+  border: 2px solid #4597F5;
+}
+
+// ghost-buttons
 .btn-ghost {
-  border: 2px solid white;
   background-color: transparent;
+  border: 2px solid white;
+}
+
+.btn-ghost-warning {
+  background-color: transparent;
+  border: 2px solid #E0001A;
+  color: #E07581;
+
+  &:hover {
+    background-color: darken(#E07581, 20%);
+  }
 }
 
 // --------------------------------------------------
-// Form
+// Form Parts
 // --------------------------------------------------
 .sb-form {
   margin: $base-margin;
@@ -45,19 +62,27 @@
   text-align: center;
 }
 
+.sb-form-profile-image {
+  height: 190px;
+  width: 190px;
+}
+
 .sb-input-wrapper {
   margin-bottom: 15px;
 }
 
 .sb-input-label {
-  display: inline-block;
+  display: block;
   margin-bottom: 5px;
+  color: #4597F5;
 }
 
 .sb-input {
   padding-left: $base-margin;
   height: 35px;
   width: 100%;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  box-shadow: inset 0 0 1px 1px rgba(100, 100, 100, 0.2);
   background-color: white;
   color: #4D4D4D;
 
@@ -66,6 +91,23 @@
   @include border-right-radius(5px);
   @include border-bottom-radius(5px);
   @include border-left-radius(5px);
+}
+
+.sb-input-narrow {
+  @extend .sb-input;
+  width: 30%;
+}
+
+.sb-input-addon {
+  display: inline-block;
+  padding: 8px 5px;
+  height: 35px;
+}
+
+// divider
+hr.sb-divider {
+  @include margin(20px 1px 20px 1px);
+  border: 1px solid #4597F5;
 }
 
 // --------------------------------------------------
@@ -108,6 +150,10 @@
   .sb-form-header {
     color: white;
   }
+
+  .sb-input-label {
+    color: rgba(255, 255, 255, 0.80);
+  }
 }
 
 .is-sidebar {
@@ -118,5 +164,9 @@
 // Form Layout
 // --------------------------------------------------
 .l-form {
-
+  height: 85%;
+  width: 50%;
+  @include margin($base-margin null $base-margin $base-margin);
+  padding: 15px;
+  border: 2px solid #4597F5;
 }
