@@ -19,7 +19,11 @@ app.config ($stateProvider, $urlRouterProvider) ->
       url: "/list",
       templateUrl: "app/books/list/list.html",
       controller: "ListBooksCtrl"
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+      resolve:
+        BooksService: 'Books',
+        books: (BooksService) ->
+          return BooksService.gets()
     .state 'books.add',
       url: "/add",
       templateUrl: "app/books/add/add.html",
@@ -28,5 +32,11 @@ app.config ($stateProvider, $urlRouterProvider) ->
 
   $urlRouterProvider.otherwise '/books/list'
 
-app.run () ->
-  console.log 'run!'
+app.run ($window) ->
+  $window.paceOptions =
+    document: true,
+    eventLag: true,
+    restartOnPushState: false,
+    restartOnRequestAfter: false,
+    ajax:
+      trackMethods: [ 'POST','GET']
