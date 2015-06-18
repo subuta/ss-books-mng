@@ -6,10 +6,58 @@ app = angular.module "kaizenBooksMng", [
   'ngSanitize',
   'ngResource',
   'ui.router',
-  'ngFx'
+  'ngFx',
+  'ngProgress'
 ]
 
-app.config ($stateProvider, $urlRouterProvider) ->
+# 進捗表示用
+app.factory "HttpProgressInterceptor", ($injector) ->
+  that = @
+  @onGoingRequests = {}
+
+  getNgProgress = ->
+    ngProgress = ngProgress || $injector.get("ngProgress")
+    ngProgress.color('#00DAA0')
+    ngProgress.height('2px');
+    return ngProgress
+
+  completeProgress = () ->
+    ngProgress = getNgProgress()
+    keys = Object.keys(that.onGoingRequests)
+    if keys.length == 0
+      console.log 'done!'
+      ngProgress.complete()
+
+  resetProgress = () ->
+    ngProgress = getNgProgress()
+    ngProgress.reset()
+    that.onGoingRequests = {}
+
+  return {
+    'request': (config) ->
+      targetUrl = config?.url
+      that.onGoingRequests[targetUrl] = true
+      ngProgress = getNgProgress()
+      ngProgress.reset()
+      ngProgress.start()
+      return config
+
+    'requestError': (rejection) ->
+      resetProgress()
+      return rejection
+
+    'response': (response) ->
+      targetUrl = response.config?.url
+      delete that.onGoingRequests[targetUrl]
+      completeProgress()
+      return response
+
+    'responseError': (rejection) ->
+      resetProgress()
+      return rejection
+    }
+
+app.config ($stateProvider, $urlRouterProvider, $httpProvider) ->
   $stateProvider
     .state 'books',
       url: '/books'
@@ -32,11 +80,8 @@ app.config ($stateProvider, $urlRouterProvider) ->
 
   $urlRouterProvider.otherwise '/books/list'
 
-app.run ($window) ->
-  $window.paceOptions =
-    document: true,
-    eventLag: true,
-    restartOnPushState: false,
-    restartOnRequestAfter: false,
-    ajax:
-      trackMethods: [ 'POST','GET']
+  # HTTPリクエストをインターセプトする。
+  $httpProvider.interceptors.push('HttpProgressInterceptor');
+
+
+app.run ($rootScope) ->
