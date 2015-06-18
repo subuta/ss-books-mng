@@ -5,7 +5,8 @@ app = angular.module "kaizenBooksMng", [
   'ngMdIcons',
   'ngSanitize',
   'ngResource',
-  'ui.router'
+  'ui.router',
+  'ngFx'
 ]
 
 app.config ($stateProvider, $urlRouterProvider) ->

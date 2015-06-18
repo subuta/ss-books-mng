@@ -5,14 +5,16 @@ var sass = require('gulp-ruby-sass');
 var paths = gulp.paths;
 var $ = require('gulp-load-plugins')();
 var bourbon = require('node-bourbon');
+var neat = require('node-neat');
 var mainBowerFiles = require("main-bower-files");
+var _ = require('underscore');
 
 bourbon.with(paths.src + '/*.scss');
 
 gulp.task('styles', ['pre-styles'], function() {
   var sassOptions = {
     style: 'expanded',
-    loadPath: [bourbon.includePaths]
+    require: ['bourbon', 'neat']
   };
 
   sass(paths.src + '/app/.tmp/index.scss', sassOptions)

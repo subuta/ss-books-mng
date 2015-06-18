@@ -4,7 +4,9 @@
   "dependencies": {
     "gulp-ruby-sass": "^1.0.5",
     "main-bower-files": "^2.8.0",
-    "node-bourbon": "^4.2.3"
+    "node-bourbon": "^4.2.3",
+    "node-neat": "^1.7.2",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "gulp": "~3.8.10",

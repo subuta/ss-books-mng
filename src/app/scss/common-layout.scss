@@ -21,7 +21,7 @@
 }
 
 .l-col-70 {
-  width: 69%;
+  @include span-columns(6);
   display: inline-block;
 }
 
