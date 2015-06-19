@@ -53,12 +53,12 @@
 // Form Parts
 // --------------------------------------------------
 .sb-form {
-  margin: $base-margin;
+  margin: 15px $base-margin;
 }
 
 .sb-form-header {
   margin: 0;
-  @include padding(5px 0 15px 0);
+  padding: 0 0 15px 0;
   text-align: center;
 }
 
@@ -144,7 +144,6 @@ hr.sb-divider {
 // SubMenu Layout
 // --------------------------------------------------
 .l-submenu {
-  height: 400px;
   background-color: #7FB6F5;
   color: rgba(255, 255, 255, 0.80);
 
@@ -160,7 +159,7 @@ hr.sb-divider {
 // Form Layout
 // --------------------------------------------------
 .l-form {
-  @include margin($base-margin null $base-margin $base-margin);
+  @include margin($base-margin null null $base-margin);
   padding: 15px;
   border: 2px solid #4597F5;
 }

@@ -1,10 +1,10 @@
 .l-footer {
-  position: absolute;
   height: 40px;
   width: 100%;
-  bottom: 0;
+  margin: 10px 0 0 0;
   padding: 12px $base-margin;
   border-top: 1px solid rgba(204, 204, 204, 0.4);
+  @include row();
 }
 
 .l-footer-text {

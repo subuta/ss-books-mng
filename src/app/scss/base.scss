@@ -51,6 +51,7 @@ ui-view, .ui-view-wrapper {
 .container {
   @include outer-container();
   @include clearfix;
+  @include row();
 }
 
 input, button, img {
