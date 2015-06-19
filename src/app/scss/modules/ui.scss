@@ -117,6 +117,7 @@ hr.sb-divider {
 .l-simple-card {
   display: inline-block;
   max-height: 190px;
+  @include margin(null null 10px null);
   box-sizing: content-box;
   box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.50);
 }
@@ -159,7 +160,7 @@ hr.sb-divider {
 // Form Layout
 // --------------------------------------------------
 .l-form {
-  @include margin($base-margin null null $base-margin);
+  margin: 0;
   padding: 15px;
   border: 2px solid #4597F5;
 }

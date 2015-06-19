@@ -52,6 +52,7 @@ ui-view, .ui-view-wrapper {
   @include outer-container();
   @include clearfix;
   @include row();
+  @include margin(($base-margin * 2) null ($base-margin * 2) null)
 }
 
 input, button, img {
