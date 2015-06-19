@@ -10,7 +10,7 @@ $column: modular-scale(3, em(20), $perfect-fourth) !default;
 $gutter: modular-scale(1, em(20), $perfect-fourth) !default;
 
 // visual-grid
-$visual-grid: true !default;
+$visual-grid: false !default;
 $visual-grid-color: red !default;
 $visual-grid-opacity: 0.4 !default;
 $visual-grid-index: front !default;

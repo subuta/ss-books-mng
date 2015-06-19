@@ -8,6 +8,5 @@ app.controller "NavbarCtrl", ($scope, $state, Shops) ->
     }
   Shops.gets({}, (shops) ->
     vm.shops = shops
-    console.log vm.shops
   )
   return @

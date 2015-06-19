@@ -3,20 +3,20 @@
     .l-col.l-books-form-inputs
       .ss-input-wrapper
         label.ss-input-label タイトル
-        input.ss-input(type="text")
+        input.ss-input(type="text" ng-model="vm.book.title")
       .ss-input-wrapper
         label.ss-input-label 著者
-        input.ss-input(type="text")
+        input.ss-input(type="text" ng-model="vm.author.name")
       .ss-input-wrapper
         label.ss-input-label 出版社名
-        input.ss-input(type="text")
+        input.ss-input(type="text" ng-model="vm.book.publisher")
       .ss-input-wrapper
         label.ss-input-label 価格 (税込み)
-        input.ss-input-narrow(type="text")
+        input.ss-input-narrow(type="text" ng-model="vm.book.price")
         span.ss-input-addon 円
       hr.ss-divider
-      button.btn.btn-primary(type="button" ss-waves) 登録
-      button.btn.btn-primary(type="button" ss-waves) 連続登録
+      button.btn.btn-primary(type="button" ng-click="vm.updateBook()" ss-waves) 更新
+      button.btn.btn-primary(type="button" ss-waves) 連続更新
       button.btn.btn-ghost-warning(type="button" ss-waves) キャンセル
     .l-col.l-books-form-image
       .ss-form-profile-image

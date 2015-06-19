@@ -1,9 +1,13 @@
 app = angular.module "kaizenBooksMng"
-app.controller "ListBooksCtrl", ($scope, books, Authors) ->
+app.controller "ListBooksCtrl", ($state, books, Authors) ->
   vm = @
   vm.books = books
-  console.log vm.books
+
   Authors.gets({}, (authors) ->
     vm.authors = authors
   )
+
+  vm.goToEdit = (id) ->
+    $state.go('books.edit', {id: Number(id)})
+
   return vm

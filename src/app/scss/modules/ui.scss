@@ -52,33 +52,33 @@
 // --------------------------------------------------
 // Form Parts
 // --------------------------------------------------
-.sb-form {
+.ss-form {
   margin: 15px $base-margin;
 }
 
-.sb-form-header {
+.ss-form-header {
   margin: 0;
   padding: 0 0 15px 0;
   text-align: center;
 }
 
-.sb-form-profile-image {
+.ss-form-profile-image {
   img {
     width: 100%;
   }
 }
 
-.sb-input-wrapper {
+.ss-input-wrapper {
   margin-bottom: 15px;
 }
 
-.sb-input-label {
+.ss-input-label {
   display: block;
   margin-bottom: 5px;
   color: #4597F5;
 }
 
-.sb-input {
+.ss-input {
   padding-left: $base-margin;
   height: 35px;
   width: 100%;
@@ -94,19 +94,19 @@
   @include border-left-radius(5px);
 }
 
-.sb-input-narrow {
-  @extend .sb-input;
+.ss-input-narrow {
+  @extend .ss-input;
   width: 30%;
 }
 
-.sb-input-addon {
+.ss-input-addon {
   display: inline-block;
   padding: 8px 5px;
   height: 35px;
 }
 
 // divider
-hr.sb-divider {
+hr.ss-divider {
   @include margin(20px 1px 20px 1px);
   border: 1px solid #4597F5;
 }
@@ -156,6 +156,7 @@ hr.sb-divider {
     color: rgba(255, 255, 255, 0.80);
   }
 }
+
 // --------------------------------------------------
 // Form Layout
 // --------------------------------------------------

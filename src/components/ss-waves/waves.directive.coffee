@@ -5,9 +5,17 @@ app = angular.module "kaizenBooksMng"
 app.directive 'ssWaves', (Waves) ->
   restrict: 'A'
   controllerAs: 'vm'
+  require: '?ngClick'
+  scope: {
+    ssWaves: '@'
+  }
   compile: (elem, attrs) ->
-    wavesClass = ['waves-light']
-    # ssWaves = 'block'となっている場合は、ブロック要素向けのクラスを指定する。
+    # 通常は暗めの波
+    wavesClass = []
+    # 'light'は明るめの波
+    if attrs.ssWaves is 'light'
+      wavesClass = ['waves-light']
+    # 'block'となっている場合は、ブロック要素向けのクラスを指定する。
     if attrs.ssWaves is 'block'
       wavesClass = ['waves-light', 'waves-block']
     Waves.attach(elem, wavesClass)
