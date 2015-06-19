@@ -1,0 +1,17 @@
+// --------------------------------------------------
+// List Books Page Layout
+// --------------------------------------------------
+.l-search-books {
+  @include span-columns(2);
+  margin-top: $base-margin;
+}
+.l-books-list {
+  @include span-columns(10);
+  @include omega();
+  margin-top: $base-margin;
+}
+
+.l-book {
+  @include span-columns(2 of 10);
+  @include omega(5n);
+}

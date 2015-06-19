@@ -18,7 +18,7 @@ app.factory "HttpProgressInterceptor", ($injector) ->
   getNgProgress = ->
     ngProgress = ngProgress || $injector.get("ngProgress")
     ngProgress.color('#00DAA0')
-    ngProgress.height('2px');
+    ngProgress.height('2px')
     return ngProgress
 
   completeProgress = () ->
@@ -81,7 +81,7 @@ app.config ($stateProvider, $urlRouterProvider, $httpProvider) ->
   $urlRouterProvider.otherwise '/books/list'
 
   # HTTPリクエストをインターセプトする。
-  $httpProvider.interceptors.push('HttpProgressInterceptor');
+  $httpProvider.interceptors.push('HttpProgressInterceptor')
 
 
 app.run ($rootScope) ->

@@ -63,8 +63,9 @@
 }
 
 .sb-form-profile-image {
-  height: 190px;
-  width: 190px;
+  img {
+    width: 100%;
+  }
 }
 
 .sb-input-wrapper {
@@ -115,35 +116,35 @@ hr.sb-divider {
 // --------------------------------------------------
 .l-simple-card {
   display: inline-block;
-  height: 190px;
-  width: 190px;
+  max-height: 190px;
   box-sizing: content-box;
-  margin: $base-margin;
   box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.50);
 }
 
 .simple-card-image {
-  height: 150px;
-  width: 190px;
+  max-height: 150px;
+  width: 100%;
 }
 
-.simple-card-label {
+.simple-card-label-area {
   display: inline-block;
-  height: 40px - $base-margin;
-  width: 190px - $base-margin;
-  @include padding($base-margin null null $base-margin);
+  height: 40px;
+  width: 100%;
+  padding: 0;
   background-color: #7FB6F5;
   color: white;
   box-shadow: 0 -1px 2px 0 rgba(0,0,0,0.40);
+}
+
+.simple-card-label {
+  @include margin(10px null null 10px);
 }
 
 // --------------------------------------------------
 // SubMenu Layout
 // --------------------------------------------------
 .l-submenu {
-  height: 85%;
-  width: 190px;
-  @include margin($base-margin null $base-margin $base-margin);
+  height: 400px;
   background-color: #7FB6F5;
   color: rgba(255, 255, 255, 0.80);
 
@@ -155,17 +156,10 @@ hr.sb-divider {
     color: rgba(255, 255, 255, 0.80);
   }
 }
-
-.is-sidebar {
-  float: left;
-}
-
 // --------------------------------------------------
 // Form Layout
 // --------------------------------------------------
 .l-form {
-  height: 85%;
-  width: 50%;
   @include margin($base-margin null $base-margin $base-margin);
   padding: 15px;
   border: 2px solid #4597F5;

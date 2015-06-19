@@ -1,6 +1,6 @@
 .container.l-clearfix
-  .l-form
-    .l-col.l-col-70
+  .l-form.l-books-form
+    .l-col.l-books-form-inputs
       .sb-input-wrapper
         label.sb-input-label タイトル
         input.sb-input(type="text")
@@ -18,7 +18,7 @@
       button.btn.btn-primary(type="button" ss-waves) 登録
       button.btn.btn-primary(type="button" ss-waves) 連続登録
       button.btn.btn-ghost-warning(type="button" ss-waves) キャンセル
-    .l-col.l-col-30
+    .l-col.l-books-form-image
       .sb-form-profile-image
         img(ng-src="http://lorempixel.com/190/190/cats/3/" ss-waves)
   div(ng-include="'components/footer/footer.html'")

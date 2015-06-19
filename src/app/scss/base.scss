@@ -46,13 +46,11 @@ h4 {font-size: 1.333em;}
 small, .font_small {font-size: 0.75em;}
 
 ui-view, .ui-view-wrapper {
-  height: 100%;
-  width: 100%;
 }
 
 .container {
-  height: 100%;
-  width: 100%;
+  @include outer-container();
+  @include clearfix;
 }
 
 input, button, img {

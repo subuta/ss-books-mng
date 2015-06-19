@@ -12,20 +12,3 @@
 .l-pull-left {
   float: left;
 }
-
-// --------------------------------------------------
-// Simple Page Layout
-// --------------------------------------------------
-.l-col:first-child {
-  padding-right: 15px;
-}
-
-.l-col-70 {
-  @include span-columns(6);
-  display: inline-block;
-}
-
-.l-col-30 {
-  width: 30%;
-  display: inline-block;
-}
