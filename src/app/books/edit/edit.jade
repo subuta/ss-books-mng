@@ -3,19 +3,10 @@ ss-navbar
 .container.l-clearfix
   .l-form.l-books-form
     .l-col.l-books-form-inputs
-      .ss-input-wrapper
-        label.ss-input-label タイトル
-        input.ss-input(type="text" ng-model="vm.book.title" aria-label="書籍のタイトル")
-      .ss-input-wrapper
-        label.ss-input-label 著者
-        input.ss-input(type="text" ng-model="vm.author.name" aria-label="書籍の著者")
-      .ss-input-wrapper
-        label.ss-input-label 出版社名
-        input.ss-input(type="text" ng-model="vm.book.publisher" aria-label="書籍の出版社")
-      .ss-input-wrapper
-        label.ss-input-label 価格 (税込み)
-        input.ss-input-narrow(type="text" ng-model="vm.book.price" aria-label="書籍の価格")
-        span.ss-input-addon 円
+      ss-input(ss-label="タイトル" ng-model="vm.book.title" aria-label="書籍のタイトル")
+      ss-input(ss-label="著者" ng-model="vm.author.name" aria-label="書籍の著者")
+      ss-input(ss-label="出版社名" ng-model="vm.book.publisher" aria-label="書籍の出版社" ng-disabled="true")
+      ss-input(ss-label="価格 (税込み)" ss-add-on="円" is-narrow="true" ng-model="vm.book.price" aria-label="書籍の価格" ng-disabled="true")
       hr.ss-divider
       button.btn.btn-primary(type="button" ng-click="vm.updateBook()" ss-waves) 更新
       button.btn.btn-ghost-primary(type="button" ng-click="vm.copyBook()" ss-waves) コピー

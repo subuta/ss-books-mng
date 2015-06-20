@@ -1,0 +1,49 @@
+// --------------------------------------------------
+// For Showing Loading Status
+// --------------------------------------------------
+.ss-input-wrapper {
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.ss-input-wrapper.is-disabled {
+  .ss-input-label {
+    color: transparentize(#4597F5, 0.5);
+  }
+  .ss-input, .ss-input-narrow {
+    background-color: transparentize(#F0F0F0, 0.5);
+  }
+}
+
+.ss-input-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #4597F5;
+}
+
+.ss-input {
+  padding-left: $base-margin;
+  height: 35px;
+  width: 100%;
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  box-shadow: inset 0 0 1px 1px rgba(100, 100, 100, 0.2);
+  background-color: white;
+  color: #4D4D4D;
+
+  // border radius
+  @include border-top-radius(5px);
+  @include border-right-radius(5px);
+  @include border-bottom-radius(5px);
+  @include border-left-radius(5px);
+}
+
+.ss-input-narrow {
+  @extend .ss-input;
+  width: 30%;
+}
+
+.ss-input-addon {
+  display: inline-block;
+  padding: 8px 5px;
+  height: 35px;
+}
