@@ -1,3 +1,13 @@
+ss-navbar
+  li.l-pull-right
+    a.btn.btn-ghost.btn-solid(ng-href='#' aria-label="次のページへ")
+      ng-md-icon(icon="navigate_next" size="24")
+  li.l-pull-right
+    a.btn.btn-ghost.btn-solid(ng-href='#' aria-label="前のページへ")
+      ng-md-icon(icon="navigate_before" size="24")
+  li.l-pull-right
+    span.l-navbar-text 0-{{vm.books.length}} / 100 (P.{{vm.page}})
+
 .container.l-clearfix
   .l-submenu.l-search-books
     form.ss-form

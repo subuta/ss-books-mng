@@ -1,5 +1,5 @@
 app = angular.module "kaizenBooksMng"
-app.controller "EditBooksCtrl", ($q, _, book, Books, authors) ->
+app.controller "EditBooksCtrl", ($q, $state, _, book, Books, authors) ->
   vm = @
   vm.book = book
 
@@ -12,23 +12,15 @@ app.controller "EditBooksCtrl", ($q, _, book, Books, authors) ->
       vm.author = _.findWhere(vm.authors, {id: Number(vm.book.author_id)})
   )
 
+  vm.copyBook = ->
+    $state.go('books.add', { templateId: Number(vm.book.id)} )
+
   vm.updateBook = ->
-    console.log 'start!'
-
-#    _book = new Books()
-#    _book.title = 'test'
-#    _book.author_id = 3
-
-#    '{"title": "Parallel Computing", "author_id": 3}'
-
-#    res = _book.$create().$promise.then( ->
-#      console.log res
-#      console.log 'yay created!!'
-#    )
-
-    vm.book.$delete().$promise.then( ->
-      console.log 'yay created!!'
+    vm.book.$save().then( (res) ->
+      console.log "book '#{res.title}' updated."
     )
-    console.log 'yay!'
+
+  vm.cancel = ->
+    $state.go('books.list')
 
   return @

@@ -2,6 +2,7 @@ app = angular.module "kaizenBooksMng", [
   'ngAnimate',
   'ngCookies',
   'ngTouch',
+  'ngAria',
   'ngMdIcons',
   'ngSanitize',
   'ngResource',
@@ -68,7 +69,7 @@ app.factory "HttpProgressInterceptor", ($injector) ->
       return rejection
     }
 
-app.config ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvider, routes) ->
+app.config ($stateProvider, $urlRouterProvider, $httpProvider, $sceProvider, routes) ->
   $stateProvider
     .state 'books',
       url: '/books'
@@ -86,10 +87,22 @@ app.config ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvi
       controller: "ListBooksCtrl"
       controllerAs: 'vm',
     .state 'books.add',
-      url: "/add",
+      url: "/add?templateId",
       templateUrl: "app/books/add/add.html",
       controller: "AddBooksCtrl"
       controllerAs: 'vm'
+      resolve:
+        authors: (AuthorsService) ->
+          return AuthorsService.gets()
+        book: (BooksService, $stateParams) ->
+          # テンプレートID(コピー元)の指定があるなら、それをベースとする。
+          if $stateParams.templateId
+            _id = $stateParams.templateId
+            return BooksService.get({id: Number(_id)})
+          else
+            # ないなら、新しいインスタンスとする。
+            book = new BooksService()
+            return book
     .state 'books.edit',
       url: "/edit/:id",
       templateUrl: "app/books/edit/edit.html",
@@ -121,12 +134,15 @@ app.config ($stateProvider, $urlRouterProvider, $httpProvider, $sceDelegateProvi
 #  $httpProvider.defaults.headers.put = commonHeader
   $httpProvider.defaults.headers.patch = {}
 
+  $sceProvider.enabled(false)
+
   # CORS関連対応
-  $sceDelegateProvider.resourceUrlWhitelist(
-    # Allow same origin resource loads.
-    'self',
-    # Allow loading from our assets domain.  Notice the difference between * and **.
-    routes.base + '/**'
-  )
+#  $sceDelegateProvider.resourceUrlWhitelist(
+#    # Allow same origin resource loads.
+#    'self',
+#    'file://.*',
+#    # Allow loading from our assets domain.  Notice the difference between * and **.
+#    routes.base + '/**'
+#  )
 
 app.run ($rootScope) ->

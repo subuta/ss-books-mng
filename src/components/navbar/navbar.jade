@@ -8,11 +8,4 @@ nav.l-navbar(ng-controller='NavbarCtrl as navbar')
     li.l-pull-right
       a.link-text
         ng-md-icon(icon="person" size="24")
-    li.l-pull-right
-      a.btn.btn-ghost.btn-solid(ng-href='#')
-        ng-md-icon(icon="navigate_next" size="24")
-    li.l-pull-right
-      a.btn.btn-ghost.btn-solid(ng-href='#')
-        ng-md-icon(icon="navigate_before" size="24")
-    li.l-pull-right
-      span.l-navbar-text 0-15 / 100 (P.{{navbar.page}})
+    div(ng-transclude="")

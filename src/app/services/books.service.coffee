@@ -11,11 +11,8 @@ Books = ($resource, routes) ->
     create:
       method: 'POST'
       url: "#{routes.base}/books.json"
-      headers: {
-        'Content-Type': 'application/json'
-      }
     save:
-      method: 'POST'
+      method: 'PUT'
   }
 
   $resource(url, defaultParams, actions)

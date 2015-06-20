@@ -39,6 +39,16 @@
   border: 2px solid white;
 }
 
+.btn-ghost-primary {
+  background-color: transparent;
+  border: 2px solid #4597F5;
+  color: #7FB6F5;
+
+  &:hover {
+    background-color: darken(#7FB6F5, 20%);
+  }
+}
+
 .btn-ghost-warning {
   background-color: transparent;
   border: 2px solid #E0001A;
