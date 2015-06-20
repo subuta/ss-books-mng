@@ -24,7 +24,7 @@ app.factory "HttpProgressInterceptor", ($injector) ->
 
   getNgProgress = ->
     that.ngProgress = that.ngProgress || $injector.get("ngProgress")
-    that.ngProgress.color('#00DAA0')
+    that.ngProgress.color('#4597F5')
     that.ngProgress.height('2px')
     return that.ngProgress
 
@@ -82,7 +82,7 @@ app.config ($stateProvider, $urlRouterProvider, $httpProvider, $sceProvider, rou
         books: (BooksService) ->
           return BooksService.gets()
     .state 'books.list',
-      url: "/list",
+      url: "/list?page",
       templateUrl: "app/books/list/list.html",
       controller: "ListBooksCtrl"
       controllerAs: 'vm',

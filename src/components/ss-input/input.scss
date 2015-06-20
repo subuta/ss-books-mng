@@ -8,26 +8,26 @@
 
 .ss-input-wrapper.is-disabled {
   .ss-input-label {
-    color: transparentize(#4597F5, 0.5);
+    color: transparentize($accent-color, 0.5);
   }
   .ss-input, .ss-input-narrow {
-    background-color: transparentize(#F0F0F0, 0.5);
+    background-color: $clear-gray;
   }
 }
 
 .ss-input-label {
   display: block;
   margin-bottom: 5px;
-  color: #4597F5;
+  color: $accent-color;
 }
 
 .ss-input {
   padding-left: $base-margin;
   height: 35px;
   width: 100%;
-  border: 1px solid rgba(204, 204, 204, 0.5);
-  box-shadow: inset 0 0 1px 1px rgba(100, 100, 100, 0.2);
-  background-color: white;
+  border: 1px solid transparentize($base-color-dark, 0.5);
+  box-shadow: inset 0 0 1px 1px $gray;
+  background-color: $base-color;
   color: #4D4D4D;
 
   // border radius

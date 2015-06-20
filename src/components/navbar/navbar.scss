@@ -5,7 +5,7 @@
   @include margin(0 0 0 0);
   padding: 0;
   height: 40px;
-  background-color: #7FB6F5;
+  background-color: $accent-color-light;
 
   .brand-logo-text {
     display: inline-block;
@@ -14,7 +14,7 @@
     left: 0;
     top: 0;
     width: 80px;
-    color: white;
+    color: $base-color;
     text-align: center;
   }
 }
@@ -32,35 +32,59 @@
     margin-right: 10px;
 
     .btn {
-      margin-top: -2px;
-      height: 44px;
+      height: 40px;
+      @include border-width(0 2px 0 2px);
     }
 
     .btn-ghost {
-      color: white;
+      color: $base-color;
 
       ng-md-icon {
-        fill: white;
+        fill: $base-color;
+      }
+
+      // 無効化されてない要素にホバーした場合のスタイル
+      &:hover:not([disabled]) {
+        color: $accent-color-light;
+        border-color: darken($base-color, 10%);
+        background-color: darken($base-color, 10%) !important;
+
+        ng-md-icon {
+          fill: $accent-color-light;
+        }
       }
     }
 
     .link-text {
-      color: white;
+      color: $base-color;
 
       ng-md-icon {
-        fill: white;
+        fill: $base-color;
       }
     }
   }
 }
 
 .l-navbar-text {
-  color: white;
+  color: $base-color;
   display: inline-block;
   padding: 10px;
 }
 
-.l-navbar-navigation.is-active, .l-navbar-navigation.is-active:hover {
-  color: #7FB6F5 !important;
-  background-color: white;
+// ナビゲーションメニューのスタイル
+.l-navbar-navigation {
+  &.is-active {
+    color: $accent-color-light !important;
+    background-color: $base-color !important;
+  }
+
+  // 無効化されている場合
+  &[disabled] {
+    border-color: $accent-color-light;
+    color: $accent-color-light;
+
+    ng-md-icon {
+      fill: $accent-color-light !important;
+    }
+  }
 }

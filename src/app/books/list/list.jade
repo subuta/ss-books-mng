@@ -1,12 +1,12 @@
 ss-navbar
   li.l-pull-right
-    a.btn.btn-ghost.btn-solid(ng-href='#' aria-label="次のページへ")
+    button.l-navbar-navigation.btn.btn-ghost.btn-solid(ui-sref='books.list({page: vm.currentPage + 1})' aria-label="次のページへ" ng-disabled="!vm.hasNext()")
       ng-md-icon(icon="navigate_next" size="24")
   li.l-pull-right
-    a.btn.btn-ghost.btn-solid(ng-href='#' aria-label="前のページへ")
+    button.l-navbar-navigation.btn.btn-ghost.btn-solid(ui-sref='books.list({page: vm.currentPage - 1})' aria-label="前のページへ" ng-disabled="!vm.hasPrevious()")
       ng-md-icon(icon="navigate_before" size="24")
   li.l-pull-right
-    span.l-navbar-text 0-{{vm.books.length}} / 100 (P.{{vm.page}})
+    span.l-navbar-text {{vm.fromCount() - 1}} - {{vm.getPaginatedBooks().length}}冊 / 合計: {{vm.books.length}}冊 ({{vm.currentPage}}ページ)
 
 .container.l-clearfix
   .l-submenu.l-search-books
@@ -21,10 +21,10 @@ ss-navbar
       .ss-input-wrapper
         label.ss-input-label 更新日時
         input.ss-input(type="text")
-      button.btn(type="button") 検索
+      button.btn.btn-primary(type="button" ss-waves) 検索
 
-  .l-simple-cards.l-books-list
-      .l-simple-card.l-book(ng-repeat="book in vm.books" ng-click="vm.goToEdit(book.id)" ss-waves="block")
+  .l-simple-cards.l-books-list(ng-if="vm.hasBooks")
+      .l-simple-card.l-book(ng-repeat="book in vm.getPaginatedBooks()" ng-click="vm.goToEdit(book.id)" ss-waves="block")
         img.simple-card-image(src="http://lorempixel.com/190/150/cats/3/")
         .simple-card-label-area
             .simple-card-label(ng-bind="book.title")

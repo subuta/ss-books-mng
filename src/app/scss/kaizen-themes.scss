@@ -1,4 +1,21 @@
 // --------------------------------------------------
 // KAIZEN Theme
 // --------------------------------------------------
+
+// --------------------------------------------------
+// Colors
+// --------------------------------------------------
+$base-color: white;
+$base-color-dark: darken($base-color, 20%);
+
+$accent-color: transparentize(#4597F5, 0.1);
+$accent-color-light: transparentize(#7FB6F5, 0.1);
+
+$warning-color: transparentize(red, 0.1);
+
+$white: transparentize(white, 0.2);
+$clear-white: transparentize($white, 0.4);
+$gray: transparentize(#8e8e8e, 0.2);
+$clear-gray: transparentize($gray, 0.4);
+
 $base-margin: 10px;
