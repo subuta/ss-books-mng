@@ -3,179 +3,179 @@ HOST: http://polls.apiblueprint.org/
 
 # books
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+架空の書店向けのAPIの定義です。
+※Apiaryを利用したモックを想定しています。
 
-# Polls API Root [/]
+## Group Books
 
-This resource does not have any attributes. Instead it offers the initial
-API affordances in the form of the links in the JSON body.
+書籍に関するAPIです。CRUD操作を実装します。
 
-It is recommend to follow the “url” link values,
-[Link](https://tools.ietf.org/html/rfc5988) or Location headers where
-applicable to retrieve resources. Instead of constructing your own URLs,
-to keep your client decoupled from implementation details.
+## Book [/books/{book_id}.json]
 
-## Retrieve the Entry Point [GET]
+書籍オブジェクトは以下の属性を持ちます。
+
++ id - 本のID
++ title - 本のタイトル
++ author_id - 著者のID
++ created_at - 作成日(ISO8601形式)
++ updated_at - 更新日(ISO8601形式)
+
++ Parameters
+    + book_id: 4 (required, number) - 本のID
+
+### 書籍を取得する。 [GET]
 
 + Response 200 (application/json)
 
         {
-            "questions_url": "/questions"
+            "id": 4,
+            "title": "Conversation With God",
+            "author_id": 2,
+            "created_at": "2015-06-10T06:15:50.479Z",
+            "updated_at": "2015-06-10T06:15:50.479Z"
         }
 
-## Group Question
-
-Resources related to questions in the API.
-
-## Question [/questions/{question_id}]
-
-A Question object has the following attributes:
-
-+ question
-+ published_at - An ISO8601 date when the question was published.
-+ url
-+ choices - An array of Choice objects.
-
-+ Parameters
-    + question_id: 1 (required, number) - ID of the Question in form of an integer
-
-### View a Questions Detail [GET]
+### 書籍を更新する。 [PUT]
 
 + Response 200 (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "published_at": "2014-11-11T08:40:51.620Z",
-            "url": "/questions/1",
-            "choices": [
-                {
-                    "choice": "Swift",
-                    "url": "/questions/1/choices/1",
-                    "votes": 2048
-                }, {
-                    "choice": "Python",
-                    "url": "/questions/1/choices/2",
-                    "votes": 1024
-                }, {
-                    "choice": "Objective-C",
-                    "url": "/questions/1/choices/3",
-                    "votes": 512
-                }, {
-                    "choice": "Ruby",
-                    "url": "/questions/1/choices/4",
-                    "votes": 256
-                }
-            ]
+            "id": 4,
+            "title": "Conversation With God",
+            "author_id": 2,
+            "created_at": "2015-06-10T06:15:50.479Z",
+            "updated_at": "2015-06-10T06:15:50.479Z"
         }
 
-## Choice [/questions/{question_id}/choices/{choice_id}]
-
-+ Parameters
-    + question_id: 1 (required, number) - ID of the Question in form of an integer
-    + choice_id: 1 (required, number) - ID of the Choice in form of an integer
-
-### Vote on a Choice [POST]
-
-This action allows you to vote on a question's choice.
-
-+ Response 201
-
-    + Headers
-
-            Location: /questions/1
-
-## Questions Collection [/questions{?page}]
-
-+ Parameters
-    + page: 1 (optional, number) - The page of questions to return
-
-### List All Questions [GET]
+### 書籍を削除する。 [DELETE]
 
 + Response 200 (application/json)
 
-    + Headers
+        {
+            "id": 4,
+            "title": "Conversation With God",
+            "author_id": 2,
+            "created_at": "2015-06-10T06:15:50.479Z",
+            "updated_at": "2015-06-10T06:15:50.479Z"
+        }
 
-            Link: </questions?page=2>; rel="next"
+## Books Collection [/books.json]
 
-    + Body
+### 書籍の一覧 [GET]
 
-            [
-                {
-                    "question": "Favourite programming language?",
-                    "published_at": "2014-11-11T08:40:51.620Z",
-                    "url": "/questions/1",
-                    "choices": [
-                        {
-                            "choice": "Swift",
-                            "url": "/questions/1/choices/1",
-                            "votes": 2048
-                        }, {
-                            "choice": "Python",
-                            "url": "/questions/1/choices/2",
-                            "votes": 1024
-                        }, {
-                            "choice": "Objective-C",
-                            "url": "/questions/1/choices/3",
-                            "votes": 512
-                        }, {
-                            "choice": "Ruby",
-                            "url": "/questions/1/choices/4",
-                            "votes": 256
-                        }
-                    ]
-                }
-            ]
++ Response 200 (application/json)
 
-### Create a New Question [POST]
+        [
+          {
+            "id": 4,
+            "title": "Conversation With God",
+            "author_id": 2,
+            "created_at": "2015-06-10T06:15:50.479Z",
+            "updated_at": "2015-06-10T06:15:50.479Z"
+          },
+          {
+            "id": 5,
+            "title": "Home with God",
+            "author_id": 2,
+            "created_at": "2015-06-10T06:15:50.481Z",
+            "updated_at": "2015-06-10T06:15:50.481Z"
+          }
+        ]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+### 書籍の作成 [POST]
 
-+ question (string) - The question
-+ choices (array[string]) - A collection of choices.
+このアクションを利用する事で、書籍を作成する事ができます。
+書籍の情報が含まれたJSONデータを要求します。
+
++ book (string) - 書籍のJSONデータ
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "title": "Parallel Computing",
+            "author_id": 3
         }
 
 + Response 201 (application/json)
 
-    + Headers
+        {
+           "id": 10,
+           "title": "Parallel Computing",
+           "author_id": 3,
+           "created_at": "2015-06-10T06:15:50.479Z",
+           "updated_at": "2015-06-10T06:15:50.479Z"
+        }
 
-            Location: /questions/2
+## Group Authors
 
-    + Body
+著者に関するAPIです。一覧操作のみをサポートします。
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2014-11-11T08:40:51.620Z",
-                "url": "/questions/2",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "url": "/questions/2/choices/1",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "url": "/questions/2/choices/2",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "url": "/questions/2/choices/3",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "url": "/questions/2/choices/4",
-                        "votes": 0
-                    }
-                ]
-            }
+## Author [/authors/{author_id}.json]
+
+著者オブジェクトは以下の属性を持ちます。
+
++ id - 著者のID
++ name - 著者の氏名(フルネーム)
++ created_at - 作成日(ISO8601形式)
++ updated_at - 更新日(ISO8601形式)
+
++ Parameters
+    + author_id: 4 (required, number) - 著者のID
+
+## Authors Collection [/authors.json]
+
+### 書籍の一覧 [GET]
+
++ Response 200 (application/json)
+
+        [
+          {
+            "id": 1,
+            "name": "Stephen King",
+            "created_at": "2015-06-10T06:15:50.420Z",
+            "updated_at": "2015-06-10T06:15:50.420Z"
+          },
+          {
+            "id": 2,
+            "name": "Neale Donald Walsch",
+            "created_at": "2015-06-10T06:15:50.423Z",
+            "updated_at": "2015-06-10T06:15:50.423Z"
+          }
+        ]
+
+## Group Shops
+
+書店に関するAPIです。一覧操作のみをサポートします。
+
+## Shop [/shops/{shop_id}.json]
+
+書店オブジェクトは以下の属性を持ちます。
+
++ id - 書店のID
++ name - 書店名
++ created_at - 作成日(ISO8601形式)
++ updated_at - 更新日(ISO8601形式)
+
++ Parameters
+    + shop_id: 4 (required, number) - 書店のID
+
+## Shops Collection [/shops.json]
+
+### 書店の一覧 [GET]
+
++ Response 200 (application/json)
+
+        [
+          {
+            "id": 1,
+            "name": "Shinjuku Nishiguchi",
+            "created_at": "2015-06-10T06:15:50.440Z",
+            "updated_at": "2015-06-10T06:15:50.440Z"
+          },
+          {
+            "id": 2,
+            "name": "Ikebukuro",
+            "created_at": "2015-06-10T06:15:50.443Z",
+            "updated_at": "2015-06-10T06:15:50.443Z"
+          }
+        ]
