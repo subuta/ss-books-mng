@@ -4,7 +4,7 @@
 app = angular.module "kaizenBooksMng"
 app.filter('offset', ->
   return (input, start)  ->
-    # - 1 means page start from 1
-    start = parseInt(start - 1, 10)
+    start = if 0 >= start then 0 else start
+    start = parseInt(start, 10)
     input.slice(start)
 )

@@ -6,7 +6,7 @@ ss-navbar
     button.l-navbar-navigation.btn.btn-ghost.btn-solid(ui-sref='books.list({page: vm.currentPage - 1})' aria-label="前のページへ" ng-disabled="!vm.hasPrevious()")
       ng-md-icon(icon="navigate_before" size="24")
   li.l-pull-right
-    span.l-navbar-text {{vm.fromCount() - 1}} - {{vm.getPaginatedBooks().length}}冊 / 合計: {{vm.books.length}}冊 ({{vm.currentPage}}ページ)
+    span.l-navbar-text {{vm.fromCount()}} - {{vm.fromCount() + vm.getPaginatedBooks().length}}冊 / 合計: {{vm.books.length}}冊 ({{vm.currentPage + 1}}ページ)
 
 .container.l-clearfix
   .l-submenu.l-search-books
