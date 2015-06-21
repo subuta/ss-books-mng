@@ -6,15 +6,12 @@
   padding: 0;
   background-color: $accent-color-light;
 
-  .brand-logo-text {
-    display: inline-block;
-    padding: $base-margin;
+  .brand-logo-image {
+    padding: 0 0 0 4px;
     position: absolute;
     left: 0;
-    top: 0;
-    width: 80px;
-    color: $base-color;
-    text-align: center;
+    top: 1px;
+    width: 135px;
   }
 
   @include media($pc) {
@@ -35,7 +32,7 @@
   width: 100%;
 
   li:first-child {
-    margin-left: 80px + $base-margin; // brand-logo + margin(10px);
+    margin-left: 125px + $base-margin; // brand-logo + margin(10px);
   }
 
   li {

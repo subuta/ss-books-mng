@@ -1,4 +1,4 @@
-app = angular.module "kaizenBooksMng"
+app = angular.module "ssBooksMng"
 app.factory('BackdropService', (_) ->
   new class BackdropService
     constructor: ->

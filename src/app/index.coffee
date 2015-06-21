@@ -1,4 +1,4 @@
-app = angular.module "kaizenBooksMng", [
+app = angular.module "ssBooksMng", [
   'ngAnimate',
   'ngCookies',
   'ngTouch',

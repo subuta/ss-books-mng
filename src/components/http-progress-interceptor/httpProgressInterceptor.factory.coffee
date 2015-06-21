@@ -1,4 +1,4 @@
-app = angular.module "kaizenBooksMng"
+app = angular.module "ssBooksMng"
 
 # 進捗表示用
 app.factory "HttpProgressInterceptor", ($injector) ->

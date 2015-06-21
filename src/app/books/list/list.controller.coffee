@@ -1,10 +1,26 @@
-app = angular.module "kaizenBooksMng"
-app.controller "ListBooksCtrl", ($state, $stateParams, $filter, books, Authors, updateAtQueries) ->
+app = angular.module "ssBooksMng"
+app.controller "ListBooksCtrl", ($state, $stateParams, $filter, $timeout, _, books, Authors, updateAtQueries) ->
   vm = @
+  vm.books = []
   vm.perPage = 10
-  vm.books = books
   vm.bookFilter = {}
   vm.updateAtFilters = updateAtQueries
+
+  ANIMATION_DELAY = 200
+
+  # アニメーション表示のための関数
+  books.$promise.then( ->
+    animateAdd(books) if books.$resolved
+  )
+
+  # 本の追加をアニメーション実行する関数
+  animateAdd = (_books) ->
+    vm.books = []
+    _.each(_books, (book, i) ->
+      $timeout( ->
+        vm.books.push(book)
+      , ANIMATION_DELAY * i)
+    )
 
   if $stateParams.page
     vm.currentPage = Number($stateParams.page)

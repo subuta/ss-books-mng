@@ -1,7 +1,7 @@
 # Angularjs Filter Of Client Side Pagination
 # from: http://fdietz.github.io/recipes-with-angular-js/common-user-interface-patterns/paginating-through-client-side-data.html
 
-app = angular.module "kaizenBooksMng"
+app = angular.module "ssBooksMng"
 app.filter('updateAt', (_, moment) ->
   return (input, query)  ->
     if query

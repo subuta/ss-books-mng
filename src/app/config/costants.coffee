@@ -1,4 +1,4 @@
-app = angular.module "kaizenBooksMng"
+app = angular.module "ssBooksMng"
 
 # add Waves as Angular's Module
 app.constant('Waves', Waves)

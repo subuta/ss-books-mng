@@ -17,7 +17,7 @@ ss-navbar
       ss-selection(ss-label="更新日時" selections="vm.updateAtFilters" selection-prop="label" selection-val="query" ng-model="vm.bookFilter.updatedAt" aria-label="書籍の更新日時のフィルタ")
 
   .l-simple-cards.l-books-list(ng-if="vm.hasBooks")
-      .l-simple-card.l-book(ng-repeat="book in vm.getPaginatedBooks()" ng-click="vm.goToEdit(book.id)" ss-waves="block")
+      .l-simple-card.l-book.fx-fade-left.fx-speed-500(ng-repeat="book in vm.getPaginatedBooks()" ng-click="vm.goToEdit(book.id)" ss-waves="block")
         img.simple-card-image(src="http://lorempixel.com/190/150/cats/3/")
         .simple-card-label-area
             .simple-card-label(ng-bind="book.title")

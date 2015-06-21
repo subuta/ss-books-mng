@@ -1,7 +1,7 @@
 # Angularjs Directive Of Waves
 # from: https://github.com/fians/Waves
 
-app = angular.module "kaizenBooksMng"
+app = angular.module "ssBooksMng"
 app.directive 'ssModal', () ->
   replace: false
   restrict: 'E'

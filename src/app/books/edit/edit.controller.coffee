@@ -1,7 +1,8 @@
-app = angular.module "kaizenBooksMng"
-app.controller "EditBooksCtrl", ($q, $state, _, book, Books, authors, ModalService) ->
+app = angular.module "ssBooksMng"
+app.controller "EditBooksCtrl", ($q, $state, $timeout, _, book, Books, authors, ModalService) ->
   vm = @
   vm.book = book
+  vm.isPageLoaded = false
 
   # 本と著者一覧の取得が完了したら
   $q.all([book.$promise, authors.$promise]).then(
@@ -10,6 +11,7 @@ app.controller "EditBooksCtrl", ($q, $state, _, book, Books, authors, ModalServi
       vm.authors = authors
       # 本の著者を取得する。
       vm.author = _.findWhere(vm.authors, {id: Number(vm.book.author_id)})
+      vm.isPageLoaded = true
   )
 
   vm.copyBook = ->
@@ -25,7 +27,7 @@ app.controller "EditBooksCtrl", ($q, $state, _, book, Books, authors, ModalServi
     question = {
       title: '本当に削除してもよろしいですか？'
       content: '''
-        この操作はaa取り消すことが出来ません。対象が正しいかどうか
+        この操作は取り消すことが出来ません。対象が正しいかどうか
         ご確認いただき、正しければ"はい"ボタンを押してください。
         (取り消す場合は"いいえ"を押してください。)
       '''
@@ -34,6 +36,7 @@ app.controller "EditBooksCtrl", ($q, $state, _, book, Books, authors, ModalServi
       if result
         vm.book.$delete().then( ->
           console.log "book '#{vm.book.title}'(id = #{vm.book.id}}) deleted."
+          $state.go('books.list')
         )
     )
 

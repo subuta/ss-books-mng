@@ -1,7 +1,8 @@
-app = angular.module "kaizenBooksMng"
+app = angular.module "ssBooksMng"
 app.controller "AddBooksCtrl", ($q, $state, _, book, authors) ->
   vm = @
   vm.book = book
+  vm.isPageLoaded = false
 
   # 本と著者一覧の取得が完了したら
   $q.all([book.$promise, authors.$promise]).then(
@@ -10,6 +11,7 @@ app.controller "AddBooksCtrl", ($q, $state, _, book, authors) ->
       vm.authors = authors
       # 本の著者を取得する。
       vm.author = _.findWhere(vm.authors, {id: Number(vm.book.author_id)})
+      vm.isPageLoaded = true
   )
 
   vm.addBook = (func = null) ->

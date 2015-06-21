@@ -1,4 +1,4 @@
-app = angular.module "kaizenBooksMng"
+app = angular.module "ssBooksMng"
 
 Books = ($resource, routes) ->
   url = "#{routes.base}/books/:id.json"

@@ -1,4 +1,4 @@
-app = angular.module "kaizenBooksMng"
+app = angular.module "ssBooksMng"
 app.factory('ModalService', ($q, _, BackdropService) ->
   new class ModalService
     constructor: ->

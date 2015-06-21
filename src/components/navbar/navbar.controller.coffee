@@ -1,4 +1,4 @@
-app = angular.module "kaizenBooksMng"
+app = angular.module "ssBooksMng"
 app.controller "NavbarCtrl", ($scope, $state, _, Shops) ->
   vm = @
   vm.getClass = (state) ->

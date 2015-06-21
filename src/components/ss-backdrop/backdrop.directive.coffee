@@ -1,12 +1,12 @@
 # Angularjs Directive Of Waves
 # from: https://github.com/fians/Waves
 
-app = angular.module "kaizenBooksMng"
+app = angular.module "ssBooksMng"
 app.directive 'ssBackdrop', () ->
   replace: false
   restrict: 'E'
   scope: {}
-  template: '<div class="ss-backdrop" ng-show="isShow" ng-click="onBackdropClick($event)"></div>'
+  template: '<div class="ss-backdrop fx-fade-normal fx-easing-back fx-speed-100" ng-show="isShow" ng-click="onBackdropClick($event)"></div>'
   compile: (elem, attrs) ->
     angular.noop()
   controller: ($scope, BackdropService, hotkeys) ->

@@ -1,4 +1,4 @@
-app = angular.module "kaizenBooksMng"
+app = angular.module "ssBooksMng"
 app.config ($stateProvider, $urlRouterProvider, $httpProvider, $sceProvider, hotkeysProvider, routes) ->
   # ルーティングの設定
   $stateProvider
