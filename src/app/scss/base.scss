@@ -52,7 +52,7 @@ ui-view, .ui-view-wrapper {
   @include outer-container();
   @include clearfix;
   @include row();
-  @include margin(($base-margin * 2) null ($base-margin * 2) null)
+  @include margin(($base-margin * 2) $base-margin ($base-margin * 2) $base-margin)
 }
 
 input, button, img, select, li, span, ng-md-icon {

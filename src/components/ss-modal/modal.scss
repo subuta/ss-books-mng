@@ -2,8 +2,6 @@
 // For Modal
 // --------------------------------------------------
 .ss-modal {
-  height: 30%;
-  width: 30%;
   @include position(absolute, 0);
   margin: auto;
   z-index: 101;
@@ -12,6 +10,20 @@
 
   @include border-top-radius(5px);
   @include border-bottom-radius(5px);
+
+  max-height: 250px;
+  @include media($pc) {
+    width: 40%;
+  }
+
+  @include media($tablet) {
+    width: 40%;
+  }
+
+  @include media($mobile) {
+    max-height: 270px;
+    width: 90%;
+  }
 }
 
 .ss-modal-header {
@@ -34,7 +46,7 @@
 
 .ss-modal-content {
   @include padding(20px 10px 0 10px);
-  height: 94px;
+  height: 100px;
 }
 
 .ss-modal-actions {

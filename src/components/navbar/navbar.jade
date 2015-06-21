@@ -6,6 +6,9 @@ nav.l-navbar(ng-controller='NavbarCtrl as navbar')
     li
       div.l-navbar-navigation.btn.btn-ghost.btn-solid(ui-sref='books.add' ng-class="navbar.getClass('books.add')") 本の追加
     li.l-pull-right
-      a.link-text
+      a.link-text(tooltips tooltip-class="tooltip-person" tooltip-content="山田 太郎" tooltip-lazy="true" tooltip-side="left" tooltip-speed="fast")
         ng-md-icon(icon="person" size="24")
+    li.l-pull-right
+      a.link-text(tooltips tooltip-class="tooltip-shop" tooltip-content="{{vm.shop.name}}店" tooltip-lazy="true" tooltip-side="left" tooltip-speed="fast")
+        ng-md-icon(icon="store" size="24")
     div(ng-transclude="")

@@ -20,4 +20,10 @@ $gray: transparentize(#8E8E8E, 0.2);
 $clear-gray: transparentize($gray, 0.4);
 $black: transparentize(#2D2D2D, 0.2);
 
+// --------------------------------------------------
+// Sizes
+// --------------------------------------------------
 $base-margin: 10px;
+$mobile: new-breakpoint(max-width 640px 6);
+$tablet: new-breakpoint(max-width 970px 10);
+$pc: new-breakpoint(min-width 971px 12);

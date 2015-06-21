@@ -2,14 +2,49 @@
 // List Books Page Layout
 // --------------------------------------------------
 .l-search-books {
-  @include span-columns(2);
+  @include media($pc) {
+    @include span-columns(2);
+  }
+
+  @include media($tablet) {
+    @include span-columns(2);
+  }
+
+  @include media($mobile) {
+    @include span-columns(6);
+    margin: 0 0 $base-margin * 2 0;
+  }
 }
 .l-books-list {
-  @include span-columns(10);
   @include omega();
+
+  @include media($pc) {
+    @include span-columns(10);
+  }
+
+  @include media($tablet) {
+    @include span-columns(8);
+  }
+
+  @include media($mobile) {
+    @include span-columns(6);
+  }
 }
 
 .l-book {
-  @include span-columns(2 of 10);
-  @include omega(5n);
+  @include media($pc) {
+    @include span-columns(2 of 10);
+    @include omega(5n);
+  }
+
+  @include media($tablet) {
+    @include span-columns(2 of 8);
+    @include omega(4n);
+  }
+
+  @include media($mobile) {
+    @include span-columns(3 of 6);
+    @include omega(2n);
+  }
+
 }

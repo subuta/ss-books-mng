@@ -1,5 +1,5 @@
 app = angular.module "kaizenBooksMng"
-app.controller "NavbarCtrl", ($scope, $state, Shops) ->
+app.controller "NavbarCtrl", ($scope, $state, _, Shops) ->
   vm = @
   vm.getClass = (state) ->
     return {
@@ -7,5 +7,6 @@ app.controller "NavbarCtrl", ($scope, $state, Shops) ->
     }
   Shops.gets({}, (shops) ->
     vm.shops = shops
+    vm.shop = _.first(vm.shops)
   )
   return @

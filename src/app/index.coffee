@@ -10,7 +10,8 @@ app = angular.module "kaizenBooksMng", [
   'ngFx',
   'ngProgress',
   'cfp.hotkeys',
-  'angularMoment'
+  'angularMoment',
+  '720kb.tooltips'
 ]
 
 app.run ($rootScope) ->

@@ -4,7 +4,6 @@
 .l-navbar {
   @include margin(0 0 0 0);
   padding: 0;
-  height: 40px;
   background-color: $accent-color-light;
 
   .brand-logo-text {
@@ -16,6 +15,18 @@
     width: 80px;
     color: $base-color;
     text-align: center;
+  }
+
+  @include media($pc) {
+    height: 40px;
+  }
+
+  @include media($tablet) {
+    height: 40px;
+  }
+
+  @include media($mobile) {
+    height: 80px;
   }
 }
 

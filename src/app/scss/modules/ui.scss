@@ -149,10 +149,30 @@ hr.ss-divider {
 // Books Form Layout
 // --------------------------------------------------
 .l-books-form {
-  @include span-columns(6);
+  @include media($pc) {
+    @include span-columns(6);
+  }
+
+  @include media($tablet) {
+    @include span-columns(10);
+  }
+
+  @include media($mobile) {
+    @include span-columns(6);
+  }
 
   .l-books-form-inputs {
-    @include span-columns(4 of 6);
+    @include media($pc) {
+      @include span-columns(4 of 6);
+    }
+
+    @include media($tablet) {
+      @include span-columns(6 of 10);
+    }
+
+    @include media($mobile) {
+      @include span-columns(6);
+    }
 
     .ss-input-wrapper:last-child {
       margin-bottom: 0;
@@ -160,7 +180,18 @@ hr.ss-divider {
   }
 
   .l-books-form-image {
-    @include span-columns(2 of 6);
+    @include media($pc) {
+      @include span-columns(2 of 6);
+    }
+
+    @include media($tablet) {
+      @include span-columns(4 of 10);
+    }
+
+    @include media($mobile) {
+      margin-top: 20px;
+      @include span-columns(6);
+    }
   }
 }
 
@@ -171,4 +202,11 @@ hr.ss-divider {
 
 .l-books-form-actions {
   @include span-columns(12);
+}
+
+// --------------------------------------------------
+// Custom Tooltip Layout(angular-tooltips)
+// --------------------------------------------------
+.tooltip-person, .tooltip-shop {
+  font-size: 10px !important;
 }
