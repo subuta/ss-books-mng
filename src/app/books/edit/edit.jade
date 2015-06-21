@@ -1,18 +1,23 @@
 ss-navbar
+ss-modal
 
 .container.l-clearfix
   .l-form.l-books-form
-    .l-col.l-books-form-inputs
-      ss-input(ss-label="タイトル" ng-model="vm.book.title" aria-label="書籍のタイトル")
-      ss-selection(ss-label="著者" selections="vm.authors" selection-prop="name" selection-val="$object" ng-model="vm.author" aria-label="書籍の著者")
-      ss-input(ss-label="出版社名" ng-model="vm.book.publisher" aria-label="書籍の出版社" ng-disabled="true")
-      ss-input(ss-label="価格 (税込み)" ss-add-on="円" is-narrow="true" ng-model="vm.book.price" aria-label="書籍の価格" ng-disabled="true")
-      hr.ss-divider
-      button.btn.btn-primary(type="button" ng-click="vm.updateBook()" ss-waves) 更新
-      button.btn.btn-ghost.btn-primary(type="button" ng-click="vm.copyBook()" ss-waves) コピー
-      button.btn.btn-ghost.btn-warning(type="button" ng-click="vm.cancel()" ss-waves) キャンセル
-    .l-col.l-books-form-image
-      .ss-form-profile-image
-        img(ng-src="http://lorempixel.com/190/190/cats/3/" ss-waves)
+    .l-row
+      .l-col.l-books-form-inputs
+        ss-input(ss-label="タイトル" ng-model="vm.book.title" aria-label="書籍のタイトル")
+        ss-selection(ss-label="著者" selections="vm.authors" selection-prop="name" selection-val="$object" ng-model="vm.author" aria-label="書籍の著者")
+        ss-input(ss-label="出版社名" ng-model="vm.book.publisher" aria-label="書籍の出版社" ng-disabled="true")
+        ss-input(ss-label="価格 (税込み)" ss-add-on="円" is-narrow="true" ng-model="vm.book.price" aria-label="書籍の価格" ng-disabled="true")
+      .l-col.l-books-form-image
+        .ss-form-profile-image
+          img(ng-src="http://lorempixel.com/190/190/cats/3/" ss-waves)
+    .l-row
+      .l-col.l-books-form-actions
+          hr.ss-divider
+          button.btn.btn-primary(type="button" ng-click="vm.updateBook()" ss-waves) 更新
+          button.btn.btn-ghost.btn-primary(type="button" ng-click="vm.copyBook()" ss-waves) コピー
+          button.btn.btn-ghost.btn-warning(type="button" ng-click="vm.deleteBook()" ss-waves) 削除
+          button.btn.btn-ghost.btn-warning(type="button" ng-click="vm.cancel()" ss-waves) キャンセル
 
 div(ng-include="'components/footer/footer.html'")

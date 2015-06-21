@@ -1,0 +1,43 @@
+// --------------------------------------------------
+// For Modal
+// --------------------------------------------------
+.ss-modal {
+  height: 30%;
+  width: 30%;
+  @include position(absolute, 0);
+  margin: auto;
+  z-index: 101;
+  background-color: white;
+  box-shadow: 0 -1px 2px 0 $gray;
+
+  @include border-top-radius(5px);
+  @include border-bottom-radius(5px);
+}
+
+.ss-modal-header {
+  padding: 10px;
+  background-color: $accent-color-light;
+  color: $base-color;
+  border-bottom: 2px solid transparentize($gray, 0.5);
+  @include border-top-radius(5px);
+}
+
+.ss-modal-header-label {
+  display: inline-block;
+  margin: 0;
+  width: 80%;
+}
+
+.ss-modal-close {
+  fill: $base-color;
+}
+
+.ss-modal-content {
+  @include padding(20px 10px 0 10px);
+  height: 94px;
+}
+
+.ss-modal-actions {
+  padding-left: 10px;
+  @include clearfix;
+}

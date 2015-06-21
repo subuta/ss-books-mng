@@ -1,18 +1,11 @@
 app = angular.module "kaizenBooksMng"
-app.factory('BackdropService', (_, hotkeys) ->
+app.factory('BackdropService', (_) ->
   new class BackdropService
     constructor: ->
       @isShow = false
       @isIgnoreHide = false
       @handlers = []
       @clickHandlers = []
-
-      hotkeys.add(
-        combo: 'esc',
-        allowIn: ['INPUT']
-        description: 'Hide Backdrop',
-        callback: () => @hide() unless @isIgnoreHide
-      )
 
       # 背景のクリック時にモーダルを隠す様にする。
       @onClick( => @hide() unless @isIgnoreHide )
@@ -32,9 +25,9 @@ app.factory('BackdropService', (_, hotkeys) ->
     removeOnClick: (func) ->
       @clickHandlers = _.without(@clickHandlers, func)
 
-    show: (ignoreEsc = false) ->
+    show: (isIgnoreHide = false) ->
       @isShow = true
-      @isIgnoreHide = ignoreEsc
+      @isIgnoreHide = isIgnoreHide
       @_callHandler()
 
     _callHandler: ->

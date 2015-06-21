@@ -1,5 +1,5 @@
 app = angular.module "kaizenBooksMng"
-app.controller "EditBooksCtrl", ($q, $state, _, book, Books, authors) ->
+app.controller "EditBooksCtrl", ($q, $state, _, book, Books, authors, ModalService) ->
   vm = @
   vm.book = book
 
@@ -19,6 +19,22 @@ app.controller "EditBooksCtrl", ($q, $state, _, book, Books, authors) ->
     vm.book.author_id = vm.author.id
     vm.book.$save().then( (res) ->
       console.log "book '#{res.title}'(id = #{res.id}}) updated."
+    )
+
+  vm.deleteBook = ->
+    question = {
+      title: '本当に削除してもよろしいですか？'
+      content: '''
+        この操作はaa取り消すことが出来ません。対象が正しいかどうか
+        ご確認いただき、正しければ"はい"ボタンを押してください。
+        (取り消す場合は"いいえ"を押してください。)
+      '''
+    }
+    ModalService.confirm(question).then( (result) ->
+      if result
+        vm.book.$delete().then( ->
+          console.log "book '#{vm.book.title}'(id = #{vm.book.id}}) deleted."
+        )
     )
 
   vm.cancel = ->

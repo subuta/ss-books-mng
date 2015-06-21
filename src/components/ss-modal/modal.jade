@@ -1,0 +1,11 @@
+.ss-modal(ng-show="isShow")
+  .ss-modal-header
+    h4.ss-modal-header-label {{title}}
+    button.ss-modal-close.l-pull-right(ng-click="no($event)")
+      ng-md-icon(icon="close" size="24")
+  .ss-modal-content
+    span {{content}}
+  hr.ss-divider
+  .ss-modal-actions
+    button.btn.btn-primary.l-pull-right(type="button" ng-click="yes($event)" ss-waves) はい
+    button.btn.btn-ghost.btn-warning.l-pull-right(type="button" ng-click="no($event)" ss-waves) いいえ

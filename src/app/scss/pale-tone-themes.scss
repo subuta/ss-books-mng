@@ -1,17 +1,18 @@
 // --------------------------------------------------
-// KAIZEN Theme
+// Pale Tone Theme
 // --------------------------------------------------
 
 // --------------------------------------------------
-// Colors
+// Colors (from: http://paletton.com/palette.php?uid=33y0u0k7hR50p%2BV3rXObyH8g8vx)
 // --------------------------------------------------
 $base-color: white;
 $base-color-dark: darken($base-color, 20%);
 
-$accent-color: transparentize(#4597F5, 0.1);
-$accent-color-light: transparentize(#7FB6F5, 0.1);
+$accent-color: transparentize(#5680A2, 0.1);
+$accent-color-light: transparentize(#B3CDE3, 0.1);
 
-$warning-color: transparentize(red, 0.1);
+$warning-color: transparentize(#FBA37D, 0.1);
+$third-color: transparentize(#FBDC7D, 0.1);
 
 $white: transparentize(#d4d4d4, 0.2);
 $clear-white: transparentize($white, 0.4);

@@ -1,14 +1,3 @@
 // --------------------------------------------------
-// Add Book Page Layout
+// Edit Book Page Layout
 // --------------------------------------------------
-.l-books-form {
-  @include span-columns(6);
-
-  .l-books-form-inputs {
-    @include span-columns(4 of 6);
-  }
-
-  .l-books-form-image {
-    @include span-columns(2 of 6);
-  }
-}
