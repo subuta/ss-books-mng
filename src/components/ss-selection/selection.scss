@@ -25,7 +25,7 @@
   @extend .ss-input;
   @include border-right-radius(0);
   border-right-width: 0;
-  width: 80%;
+  width: 80% !important;
 }
 
 // selection要素に一度に表示するアイテム数。
@@ -48,19 +48,29 @@ $selection-item-count: 5;
 }
 
 .ss-selection-item {
-  margin: 0 0 $base-margin 0;
-  padding: $base-margin;
+  margin: 0;
+  padding: $base-margin $base-margin $base-margin $base-margin;
+  @include prefixer(box-sizing, border-box, webkit moz spec);
   width: 100%;
   @extend .l-text-ellipsis;
   color: $black;
+  border-bottom: solid 1px transparentize($gray, 0.5);
 
   &:hover {
     background-color: darken($base-color, 10%);
+    border-color: darken($base-color, 10%);
     color: $black;
   }
 
+  &:first-child {
+    border-top: solid 1px transparentize($gray, 0.5);
+  }
+
   &:last-child {
-    margin: 0;
+  }
+
+  &.is-selected {
+    color: $accent-color;
   }
 }
 
@@ -70,7 +80,7 @@ $selection-item-count: 5;
   display: inline-block;
   padding: 5px 0;
   height: 35px;
-  width: 30px !important;
+  width: 20% !important;
   border-left-width: 0;
   text-align: center;
 }

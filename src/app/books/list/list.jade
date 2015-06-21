@@ -12,12 +12,9 @@ ss-navbar
   .l-submenu.l-search-books
     form.ss-form
       h4.ss-form-header 検索条件
-      ss-input(ss-label="タイトル" ng-model="vm.bookFilter.title" ng-model-options="{ debounce: 500 }" aria-label="書籍のタイトルのフィルタ")
-      ss-selection(ss-label="著者" selections="vm.authors" selection-prop="name" ng-model="vm.bookFilter.authorName" ng-model-options="{ debounce: 500 }" aria-label="書籍のタイトルの著者")
-      .ss-input-wrapper
-        label.ss-input-label 更新日時
-        input.ss-input(type="text")
-      button.btn.btn-primary(type="button" ng-model="vm.bookFilter.updatedAt" ng-model-options="{ debounce: 500 }" ss-waves) 検索
+      ss-input(ss-label="タイトル" ng-model="vm.bookFilter.title" ng-model-options="{ debounce: 300 }" aria-label="書籍のタイトルのフィルタ")
+      ss-selection(ss-label="著者" selections="vm.authors" selection-prop="name" ng-model="vm.bookFilter.authorName" aria-label="書籍の著者のフィルタ")
+      ss-selection(ss-label="更新日時" selections="vm.updateAtFilters" selection-prop="label" selection-val="query" ng-model="vm.bookFilter.updatedAt" aria-label="書籍の更新日時のフィルタ")
 
   .l-simple-cards.l-books-list(ng-if="vm.hasBooks")
       .l-simple-card.l-book(ng-repeat="book in vm.getPaginatedBooks()" ng-click="vm.goToEdit(book.id)" ss-waves="block")

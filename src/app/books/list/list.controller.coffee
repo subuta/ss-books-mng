@@ -1,9 +1,10 @@
 app = angular.module "kaizenBooksMng"
-app.controller "ListBooksCtrl", ($state, $stateParams, $filter, books, Authors) ->
+app.controller "ListBooksCtrl", ($state, $stateParams, $filter, books, Authors, updateAtQueries) ->
   vm = @
   vm.perPage = 10
   vm.books = books
   vm.bookFilter = {}
+  vm.updateAtFilters = updateAtQueries
 
   if $stateParams.page
     vm.currentPage = Number($stateParams.page)
@@ -23,15 +24,14 @@ app.controller "ListBooksCtrl", ($state, $stateParams, $filter, books, Authors) 
   vm.hasPrevious = ->
     vm.currentPage > 0
 
-  vm.click = ->
-    console.log 'yay!'
-
   vm.getPaginatedBooks = (page = vm.currentPage) ->
-    pagedBooks = $filter('offset')(vm.books, page * vm.perPage)
-    pagedBooks = $filter('filter')(pagedBooks, { title: vm.bookFilter.title })
-    pagedBooks = $filter('author')(pagedBooks, vm.authors, vm.bookFilter.authorName )
-    pagedBooks = $filter('limitTo')(pagedBooks, vm.perPage)
-    return pagedBooks
+    _books = vm.books
+    _books = $filter('filter')(_books, { title: vm.bookFilter.title })
+    _books = $filter('author')(_books, vm.authors, vm.bookFilter.authorName )
+    _books = $filter('updateAt')(_books, vm.bookFilter.updatedAt)
+    _books = $filter('offset')(_books, page * vm.perPage)
+    _books = $filter('limitTo')(_books, vm.perPage)
+    return _books
 
   # 1つでも
   vm.hasBooks = ->

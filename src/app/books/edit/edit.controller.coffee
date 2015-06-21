@@ -16,8 +16,9 @@ app.controller "EditBooksCtrl", ($q, $state, _, book, Books, authors) ->
     $state.go('books.add', { templateId: Number(vm.book.id)} )
 
   vm.updateBook = ->
+    vm.book.author_id = vm.author.id
     vm.book.$save().then( (res) ->
-      console.log "book '#{res.title}' updated."
+      console.log "book '#{res.title}'(id = #{res.id}}) updated."
     )
 
   vm.cancel = ->

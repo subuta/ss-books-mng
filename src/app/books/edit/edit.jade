@@ -4,7 +4,7 @@ ss-navbar
   .l-form.l-books-form
     .l-col.l-books-form-inputs
       ss-input(ss-label="タイトル" ng-model="vm.book.title" aria-label="書籍のタイトル")
-      ss-input(ss-label="著者" ng-model="vm.author.name" aria-label="書籍の著者")
+      ss-selection(ss-label="著者" selections="vm.authors" selection-prop="name" selection-val="$object" ng-model="vm.author" aria-label="書籍の著者")
       ss-input(ss-label="出版社名" ng-model="vm.book.publisher" aria-label="書籍の出版社" ng-disabled="true")
       ss-input(ss-label="価格 (税込み)" ss-add-on="円" is-narrow="true" ng-model="vm.book.price" aria-label="書籍の価格" ng-disabled="true")
       hr.ss-divider

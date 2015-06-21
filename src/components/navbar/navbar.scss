@@ -45,12 +45,12 @@
 
       // 無効化されてない要素にホバーした場合のスタイル
       &:hover:not([disabled]) {
-        color: $accent-color-light;
-        border-color: darken($base-color, 10%);
-        background-color: darken($base-color, 10%) !important;
+        color: $base-color !important;
+        border-color: darken($accent-color-light, 10%);
+        background-color: darken($accent-color-light, 10%) !important;
 
         ng-md-icon {
-          fill: $accent-color-light;
+          color: $base-color;
         }
       }
     }

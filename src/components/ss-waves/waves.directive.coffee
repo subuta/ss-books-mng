@@ -18,6 +18,9 @@ app.directive 'ssWaves', (Waves) ->
     # 'block'となっている場合は、ブロック要素向けのクラスを指定する。
     if attrs.ssWaves is 'block'
       wavesClass = ['waves-light', 'waves-block']
+    # 'block-dark'となっている場合は、ブロック要素向けのクラスかつ暗めの波を指定する。
+    if attrs.ssWaves is 'block-dark'
+      wavesClass = ['waves-block']
     Waves.attach(elem, wavesClass)
 
   controller: class

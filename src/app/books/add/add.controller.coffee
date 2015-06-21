@@ -13,8 +13,9 @@ app.controller "AddBooksCtrl", ($q, $state, _, book, authors) ->
   )
 
   vm.addBook = (func = null) ->
+    vm.book.author_id = vm.author.id
     vm.book.$create().then( (res) ->
-      console.log "book '#{res.title}' created."
+      console.log "book '#{res.title}'(id = #{res.id}}) created."
       if func
         func(res)
       else
