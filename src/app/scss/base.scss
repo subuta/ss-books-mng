@@ -55,6 +55,10 @@ ui-view, .ui-view-wrapper {
   @include margin(($base-margin * 2) null ($base-margin * 2) null)
 }
 
-input, button, img {
+input, button, img, select, li, span, ng-md-icon {
   outline: none;
+}
+
+ul {
+  list-style: none;
 }

@@ -12,3 +12,9 @@
 .l-pull-left {
   float: left;
 }
+
+.l-text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

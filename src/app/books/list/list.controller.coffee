@@ -3,6 +3,7 @@ app.controller "ListBooksCtrl", ($state, $stateParams, $filter, books, Authors) 
   vm = @
   vm.perPage = 10
   vm.books = books
+  vm.bookFilter = {}
 
   if $stateParams.page
     vm.currentPage = Number($stateParams.page)
@@ -22,8 +23,13 @@ app.controller "ListBooksCtrl", ($state, $stateParams, $filter, books, Authors) 
   vm.hasPrevious = ->
     vm.currentPage > 0
 
+  vm.click = ->
+    console.log 'yay!'
+
   vm.getPaginatedBooks = (page = vm.currentPage) ->
     pagedBooks = $filter('offset')(vm.books, page * vm.perPage)
+    pagedBooks = $filter('filter')(pagedBooks, { title: vm.bookFilter.title })
+    pagedBooks = $filter('author')(pagedBooks, vm.authors, vm.bookFilter.authorName )
     pagedBooks = $filter('limitTo')(pagedBooks, vm.perPage)
     return pagedBooks
 

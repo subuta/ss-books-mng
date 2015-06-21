@@ -115,7 +115,9 @@ hr.ss-divider {
 }
 
 .simple-card-label {
+  width: 90%;
   @include margin(10px null null 10px);
+  @extend .l-text-ellipsis;
 }
 
 // --------------------------------------------------
@@ -125,7 +127,7 @@ hr.ss-divider {
   background-color: $accent-color-light;
   color: $base-color;
 
-  .sb-form-header {
+  .ss-form-header {
     color: $base-color;
   }
 
@@ -142,3 +144,14 @@ hr.ss-divider {
   padding: 15px;
   border: 2px solid transparentize($accent-color, 0.5);
 }
+
+// --------------------------------------------------
+// Selection Module
+// --------------------------------------------------
+//.ss-selection {
+//  @extend .ss-input;
+//  @extend .l-text-ellipsis;
+//  width: 80%;
+//  @include border-right-radius(0);
+//  border-right-width: 0;
+//}

@@ -1,0 +1,80 @@
+// --------------------------------------------------
+// For Showing Loading Status
+// --------------------------------------------------
+.ss-selection-wrapper {
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.ss-selection-wrapper.is-disabled {
+  .ss-selection-label {
+    color: transparentize($accent-color, 0.5);
+  }
+  .ss-selection, .ss-selection-narrow {
+    background-color: $clear-gray;
+  }
+}
+
+.ss-selection-label {
+  display: block;
+  margin-bottom: 5px;
+  color: $accent-color;
+}
+
+.ss-selection-input {
+  @extend .ss-input;
+  @include border-right-radius(0);
+  border-right-width: 0;
+  width: 80%;
+}
+
+// selection要素に一度に表示するアイテム数。
+$selection-item-count: 5;
+
+.ss-selection {
+  position: relative;
+  max-height: $selection-item-count * 50 + $base-margin;
+  padding: $base-margin 0;
+  margin-top: -35px;
+  background-color: $base-color;
+  z-index: 101;
+  overflow-y: scroll;
+
+  // border radius
+  @include border-top-radius(5px);
+  @include border-right-radius(5px);
+  @include border-bottom-radius(5px);
+  @include border-left-radius(5px);
+}
+
+.ss-selection-item {
+  margin: 0 0 $base-margin 0;
+  padding: $base-margin;
+  width: 100%;
+  @extend .l-text-ellipsis;
+  color: $black;
+
+  &:hover {
+    background-color: darken($base-color, 10%);
+    color: $black;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.ss-selection-addon {
+  @extend .ss-input;
+  @include border-left-radius(0);
+  display: inline-block;
+  padding: 5px 0;
+  height: 35px;
+  width: 30px !important;
+  border-left-width: 0;
+  text-align: center;
+}
+
+.ss-selection-input + .ss-selection-addon {
+  margin-left: -4px;
+}

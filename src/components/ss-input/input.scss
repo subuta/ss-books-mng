@@ -39,11 +39,22 @@
 
 .ss-input-narrow {
   @extend .ss-input;
+  @include border-right-radius(0);
+  border-right-width: 0;
   width: 30%;
 }
 
 .ss-input-addon {
+  @extend .ss-input;
+  @include border-left-radius(0);
   display: inline-block;
-  padding: 8px 5px;
+  padding: 5px 3px;
   height: 35px;
+  width: 30px;
+  border-left-width: 0;
+  text-align: center;
+}
+
+.ss-input + .ss-input-addon ,.ss-input-narrow + .ss-input-addon {
+  margin-left: -4px;
 }

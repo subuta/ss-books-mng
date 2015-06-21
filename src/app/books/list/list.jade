@@ -6,22 +6,18 @@ ss-navbar
     button.l-navbar-navigation.btn.btn-ghost.btn-solid(ui-sref='books.list({page: vm.currentPage - 1})' aria-label="前のページへ" ng-disabled="!vm.hasPrevious()")
       ng-md-icon(icon="navigate_before" size="24")
   li.l-pull-right
-    span.l-navbar-text {{vm.fromCount()}} - {{vm.fromCount() + vm.getPaginatedBooks().length}}冊 / 合計: {{vm.books.length}}冊 ({{vm.currentPage + 1}}ページ)
+    span.l-navbar-text {{vm.fromCount()}} - {{vm.fromCount() + vm.getPaginatedBooks().length}}冊 / 総件数: {{vm.books.length}}冊 ({{vm.currentPage + 1}}ページ)
 
 .container.l-clearfix
   .l-submenu.l-search-books
     form.ss-form
       h4.ss-form-header 検索条件
-      .ss-input-wrapper
-        label.ss-input-label タイトル
-        input.ss-input(type="text")
-      .ss-input-wrapper
-        label.ss-input-label 著者
-        input.ss-input(type="text")
+      ss-input(ss-label="タイトル" ng-model="vm.bookFilter.title" ng-model-options="{ debounce: 500 }" aria-label="書籍のタイトルのフィルタ")
+      ss-selection(ss-label="著者" selections="vm.authors" selection-prop="name" ng-model="vm.bookFilter.authorName" ng-model-options="{ debounce: 500 }" aria-label="書籍のタイトルの著者")
       .ss-input-wrapper
         label.ss-input-label 更新日時
         input.ss-input(type="text")
-      button.btn.btn-primary(type="button" ss-waves) 検索
+      button.btn.btn-primary(type="button" ng-model="vm.bookFilter.updatedAt" ng-model-options="{ debounce: 500 }" ss-waves) 検索
 
   .l-simple-cards.l-books-list(ng-if="vm.hasBooks")
       .l-simple-card.l-book(ng-repeat="book in vm.getPaginatedBooks()" ng-click="vm.goToEdit(book.id)" ss-waves="block")

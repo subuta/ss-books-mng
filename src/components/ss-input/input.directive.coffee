@@ -17,7 +17,7 @@ app.directive 'ssInput', () ->
       <div ng-class="getWrapperClass()">
         <label class="ss-input-label">{{ssLabel}}</label>
         <input type="text" ng-model="ngModel" ng-class="getInputClass()" ng-disabled="ngDisabled"/>
-        <span class="ss-input-addon" ng-if="ssAddOn">{{ssAddOn}}</span>
+        <span class="ss-input-addon" ng-show="ssAddOn">{{ssAddOn}}</span>
       </div>
   '''
   controller: ($scope) ->
