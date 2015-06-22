@@ -11,7 +11,12 @@ app = angular.module "ssBooksMng", [
   'ngProgress',
   'cfp.hotkeys',
   'angularMoment',
-  '720kb.tooltips'
+  '720kb.tooltips',
+  'toastr'
 ]
 
 app.run ($rootScope) ->
+  $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, error) ->
+    console.log "error on state change. error = "
+    console.log error
+  )

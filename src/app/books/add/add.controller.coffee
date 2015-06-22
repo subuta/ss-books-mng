@@ -1,5 +1,5 @@
 app = angular.module "ssBooksMng"
-app.controller "AddBooksCtrl", ($q, $state, _, book, authors) ->
+app.controller "AddBooksCtrl", ($q, $state, _, book, authors, toastr) ->
   vm = @
   vm.book = book
   vm.isPageLoaded = false
@@ -18,6 +18,7 @@ app.controller "AddBooksCtrl", ($q, $state, _, book, authors) ->
     vm.book.author_id = vm.author.id
     vm.book.$create().then( (res) ->
       console.log "book '#{res.title}'(id = #{res.id}}) created."
+      toastr.success("'#{res.title}'を作成しました。", 'Success')
       if func
         func(res)
       else

@@ -12,4 +12,4 @@ Authors = ($resource, routes) ->
 
   $resource(url, defaultParams, actions)
 
-app.factory('Authors', Authors)
+app.factory('Authors', [ '$resource', 'routes' , Authors ])

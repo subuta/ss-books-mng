@@ -1,5 +1,5 @@
 app = angular.module "ssBooksMng"
-app.controller "EditBooksCtrl", ($q, $state, $timeout, _, book, Books, authors, ModalService) ->
+app.controller "EditBooksCtrl", ($q, $state, $timeout, _, book, Books, toastr, authors, ModalService) ->
   vm = @
   vm.book = book
   vm.isPageLoaded = false
@@ -21,6 +21,7 @@ app.controller "EditBooksCtrl", ($q, $state, $timeout, _, book, Books, authors, 
     vm.book.author_id = vm.author.id
     vm.book.$save().then( (res) ->
       console.log "book '#{res.title}'(id = #{res.id}}) updated."
+      toastr.success("'#{res.title}'を更新しました。", 'Success')
     )
 
   vm.deleteBook = ->
@@ -36,6 +37,7 @@ app.controller "EditBooksCtrl", ($q, $state, $timeout, _, book, Books, authors, 
       if result
         vm.book.$delete().then( ->
           console.log "book '#{vm.book.title}'(id = #{vm.book.id}}) deleted."
+          toastr.success("'#{vm.book.title}'を削除しました。", 'Success')
           $state.go('books.list')
         )
     )

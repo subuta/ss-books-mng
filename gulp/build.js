@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var prettify = require('gulp-prettify');
 
 var paths = gulp.paths;
 
@@ -11,17 +12,17 @@ var $ = require('gulp-load-plugins')({
 gulp.task('partials', ['markups'], function () {
   return gulp.src([
     paths.src + '/{app,components}/**/*.html',
-    paths.tmp + '/{app,components}/**/*.html'
+    paths.tmp + '/serve/{app,components}/**/*.html'
   ])
-    .pipe($.minifyHtml({
-      empty: true,
-      spare: true,
-      quotes: true
-    }))
-    .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'ssBooksMng'
-    }))
-    .pipe(gulp.dest(paths.tmp + '/partials/'));
+  .pipe($.minifyHtml({
+    empty: true,
+    spare: true,
+    quotes: true
+  }))
+  .pipe($.angularTemplatecache('templateCacheHtml.js', {
+    module: 'ssBooksMng'
+  }))
+  .pipe(gulp.dest(paths.tmp + '/partials/'));
 });
 
 gulp.task('html', ['inject', 'partials'], function () {
@@ -42,7 +43,9 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(assets = $.useref.assets())
     .pipe($.rev())
     .pipe(jsFilter)
-    .pipe($.ngAnnotate())
+    .pipe($.ngAnnotate({
+      add: true
+    }))
     .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
@@ -52,6 +55,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.useref())
     .pipe($.revReplace())
     .pipe(htmlFilter)
+    //.pipe(prettify({indent_size: 2})) //for debugging
     .pipe($.minifyHtml({
       empty: true,
       spare: true,

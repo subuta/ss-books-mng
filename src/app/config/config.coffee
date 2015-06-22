@@ -1,11 +1,12 @@
 app = angular.module "ssBooksMng"
+
 app.config ($stateProvider, $urlRouterProvider, $httpProvider, $sceProvider, hotkeysProvider, routes) ->
   # ルーティングの設定
   $stateProvider
     .state 'books',
       url: '/books'
       abstract: true
-      template: '<ui-view/>'
+      template: '<ui-view></ui-view>'
       resolve:
         BooksService: 'Books',
         AuthorsService: 'Authors',
@@ -51,18 +52,14 @@ app.config ($stateProvider, $urlRouterProvider, $httpProvider, $sceProvider, hot
   # HTTPリクエストをインターセプトする。
   $httpProvider.interceptors.push('HttpProgressInterceptor')
 
-  # Reset headers to avoid OPTIONS request (aka preflight)
+  # Set Common Headers
   commonHeader = {
     'Content-Type': 'application/json'
   }
 
   $httpProvider.defaults.headers.common = {}
-  $httpProvider.defaults.headers.post = {
-    'Content-Type': 'application/json'
-  }
-  $httpProvider.defaults.headers.put = {}
-  #  $httpProvider.defaults.headers.post = commonHeader
-  #  $httpProvider.defaults.headers.put = commonHeader
+  $httpProvider.defaults.headers.post = commonHeader
+  $httpProvider.defaults.headers.put = commonHeader
   $httpProvider.defaults.headers.patch = {}
 
   # SCEを無効化
@@ -71,12 +68,3 @@ app.config ($stateProvider, $urlRouterProvider, $httpProvider, $sceProvider, hot
   # ショートカット関連の設定
   hotkeysProvider.includeCheatSheet = false
   hotkeysProvider.useNgRoute = false
-
-# CORS関連対応
-#  $sceDelegateProvider.resourceUrlWhitelist(
-#    # Allow same origin resource loads.
-#    'self',
-#    'file://.*',
-#    # Allow loading from our assets domain.  Notice the difference between * and **.
-#    routes.base + '/**'
-#  )

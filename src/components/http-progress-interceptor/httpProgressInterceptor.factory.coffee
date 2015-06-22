@@ -6,6 +6,7 @@ app.factory "HttpProgressInterceptor", ($injector) ->
   @onGoingRequests = {}
   that.ngProgress = null
   that.BackdropService = null
+  that.toastr = null
 
   getBackdrop = ->
     that.BackdropService = that.BackdropService || $injector.get("BackdropService")
@@ -54,6 +55,11 @@ app.factory "HttpProgressInterceptor", ($injector) ->
     return response
 
   'responseError': (rejection) ->
+    state = $injector.get("$state")
+    state.go('books.list')
+    that.toastr = that.toastr || $injector.get("toastr")
+    if rejection.status == 0 or rejection.status == 404
+      that.toastr.error('指定されたページがみつかりませんでした。', 'Error')
     resetProgress()
     return rejection
   }

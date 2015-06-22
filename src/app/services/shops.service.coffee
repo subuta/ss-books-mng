@@ -12,4 +12,4 @@ Shops = ($resource, routes) ->
 
   $resource(url, defaultParams, actions)
 
-app.factory('Shops', Shops)
+app.factory('Shops', [ '$resource', 'routes' , Shops ])
